@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/>
+  <path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/>
+  <path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/>
+  <path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/>
+  <circle cx="100" cy="100" r="45" fill="white"/>
+  <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">WM</text>
+  <text x="100" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c41230" letter-spacing="1">PRO</text>
+</svg>
