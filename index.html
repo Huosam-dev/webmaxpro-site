@@ -252,8 +252,8 @@ body.rtl .wa-float{right:auto;left:30px}
 
 <!-- TICKER -->
 <div id="ticker-bar" style="background:#1a1a1a;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;padding:5px 0;overflow:hidden;white-space:nowrap;border-bottom:1px solid #333;position:fixed;top:0;width:100%;z-index:300">
-  <div id="ticker-content" style="display:inline-block;animation:ticker 40s linear infinite">
-    <span style="color:#888;margin:0 20px">Loading live rates...</span>
+  <div id="ticker-content" style="display:inline-block">
+    <span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span>
   </div>
 </div>
 <style>
@@ -262,14 +262,17 @@ body.rtl .wa-float{right:auto;left:30px}
 .ticker-up{color:#2ecc71}
 .ticker-down{color:#e74c3c}
 .ticker-label{color:#c8a96e;margin-right:6px;font-weight:600}
+.ticker-skel{display:inline-block;width:100px;height:8px;background:rgba(255,255,255,0.15);border-radius:3px;vertical-align:middle;margin:0 24px;animation:skel-pulse 1.4s ease-in-out infinite}
+@keyframes skel-pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
 </style>
 <script>
 async function loadTicker(){
+  const el = document.getElementById('ticker-content');
   try {
-    // Forex + Crypto fetched in parallel — eliminates sequential chain
+    // Both APIs fetched in parallel — no sequential chain
     const [fxRes, cryptoRes] = await Promise.all([
       fetch('https://api.exchangerate-api.com/v4/latest/EUR'),
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,gold&vs_currencies=usd&include_24hr_change=true')
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin&vs_currencies=usd&include_24hr_change=true')
     ]);
     const [fxData, cryptoData] = await Promise.all([fxRes.json(), cryptoRes.json()]);
 
@@ -280,22 +283,12 @@ async function loadTicker(){
     const aed = rates.AED?.toFixed(4) || '3.97';
     const try_ = rates.TRY?.toFixed(2) || '34.5';
     const jod = rates.JOD?.toFixed(4) || '0.77';
-    
+
     const btc = cryptoData.bitcoin?.usd?.toLocaleString() || '67,000';
     const btcChg = cryptoData.bitcoin?.usd_24h_change?.toFixed(2) || '0';
     const eth = cryptoData.ethereum?.usd?.toLocaleString() || '3,500';
     const ethChg = cryptoData.ethereum?.usd_24h_change?.toFixed(2) || '0';
     const bnb = cryptoData.binancecoin?.usd?.toFixed(0) || '580';
-
-    // Gold from metals API
-    let goldPrice = '3,200';
-    let oilPrice = '78.50';
-    try {
-      const metalsRes = await fetch('https://api.metals.live/v1/spot/gold,oil');
-      const metalsData = await metalsRes.json();
-      goldPrice = metalsData[0]?.price?.toFixed(2) || '3,200';
-      oilPrice = metalsData[1]?.price?.toFixed(2) || '78.50';
-    } catch(e) {}
 
     const btcClass = btcChg >= 0 ? 'ticker-up' : 'ticker-down';
     const ethClass = ethChg >= 0 ? 'ticker-up' : 'ticker-down';
@@ -303,8 +296,6 @@ async function loadTicker(){
     const ethArrow = ethChg >= 0 ? '▲' : '▼';
 
     const items = `
-      <span class="ticker-item"><span class="ticker-label">GOLD</span>$${goldPrice}/oz</span>
-      <span class="ticker-item"><span class="ticker-label">OIL</span>$${oilPrice}/bbl</span>
       <span class="ticker-item"><span class="ticker-label">BTC/USD</span><span class="${btcClass}">${btcArrow} $${btc} (${btcChg}%)</span></span>
       <span class="ticker-item"><span class="ticker-label">ETH/USD</span><span class="${ethClass}">${ethArrow} $${eth} (${ethChg}%)</span></span>
       <span class="ticker-item"><span class="ticker-label">BNB/USD</span>$${bnb}</span>
@@ -315,16 +306,18 @@ async function loadTicker(){
       <span class="ticker-item"><span class="ticker-label">EUR/TRY</span>${try_}</span>
       <span class="ticker-item"><span class="ticker-label">EUR/JOD</span>${jod}</span>
     `;
-    document.getElementById('ticker-content').innerHTML = items + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + items;
-    // done
+    // Inject data then start scroll animation — skeleton stays static until this point
+    el.innerHTML = items + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + items;
+    el.style.animation = 'ticker 40s linear infinite';
   } catch(e) {
-    document.getElementById('ticker-content').innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable — check your connection</span>';
+    el.innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable</span>';
+    el.style.animation = 'none';
   }
 }
-// Defer ticker until after page load so it doesn't compete with critical resources
+// Wait for page load, then wait for browser idle before firing any API calls
 window.addEventListener('load', function() {
-  loadTicker();
-  setInterval(loadTicker, 60000);
+  var defer = typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : function(fn){ setTimeout(fn, 200); };
+  defer(function(){ loadTicker(); setInterval(loadTicker, 60000); });
 });
 </script>
 
