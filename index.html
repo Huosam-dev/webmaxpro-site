@@ -90,7 +90,7 @@ body.rtl .nav-links{flex-direction:row-reverse}
 .hero-inner{position:relative;max-width:900px}
 .hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:6px 18px;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
-.hero h1 em{color:var(--gold);font-style:italic}
+.hero h1 em{color:#7a5c00;font-style:italic}
 .hero-sub{font-size:13px;color:#777;letter-spacing:3px;text-transform:uppercase;margin-bottom:50px}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .btn-primary{display:inline-block;padding:16px 44px;background:linear-gradient(135deg,#c41230,#8b0d22);color:var(--black);text-decoration:none;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;font-family:'Montserrat',sans-serif;border:none;cursor:pointer}
@@ -112,9 +112,9 @@ body.rtl .stat:last-child{border-left:none}
 .section-dark{background:var(--dark);padding:100px 20px;border-top:3px solid #d44060}
 .section-dark .section{background:transparent}
 .section-title-wrap{text-align:center;margin-bottom:70px}
-.section-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+.section-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:#7a5c00;padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
 h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);color:#1a1a1a;line-height:1.1;font-weight:700}
-h2 em{color:var(--gold);font-style:italic}
+h2 em{color:#7a5c00;font-style:italic}
 .section-desc{color:#777;font-size:14px;line-height:1.8;margin-top:16px;max-width:600px;margin-left:auto;margin-right:auto}
 
 /* SERVICES GRID */
@@ -239,6 +239,9 @@ body.rtl .wa-float{right:auto;left:30px}
   .section{padding:70px 20px}
   .hero h1{font-size:42px}
 }
+/* CTA banner is near-black: restore lighter gold so contrast passes there too */
+.cta-banner .section-badge{color:#dfc08a}
+.cta-banner h2 em{color:#dfc08a}
 /* Stop all infinite animations for users who prefer reduced motion */
 @media(prefers-reduced-motion:reduce){
   .logo-spin,.globe-3d,.globe-3d::after{animation:none}
