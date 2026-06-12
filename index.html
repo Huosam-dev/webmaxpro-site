@@ -261,17 +261,13 @@ body.rtl .wa-float{right:auto;left:30px}
 <script>
 async function loadTicker(){
   try {
-    // Forex rates (EUR base)
-    const fx = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
-    const fxData = await fx.json();
-    
-    // Crypto + Gold rates
-    const crypto = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,gold&vs_currencies=usd&include_24hr_change=true');
-    const cryptoData = await crypto.json();
+    // Forex + Crypto fetched in parallel — eliminates sequential chain
+    const [fxRes, cryptoRes] = await Promise.all([
+      fetch('https://api.exchangerate-api.com/v4/latest/EUR'),
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,gold&vs_currencies=usd&include_24hr_change=true')
+    ]);
+    const [fxData, cryptoData] = await Promise.all([fxRes.json(), cryptoRes.json()]);
 
-    // Oil price
-    const oil = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd');
-    
     const rates = fxData.rates;
     const usd = rates.USD?.toFixed(4) || '1.08';
     const gbp = rates.GBP?.toFixed(4) || '0.86';
@@ -320,8 +316,11 @@ async function loadTicker(){
     document.getElementById('ticker-content').innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable — check your connection</span>';
   }
 }
-loadTicker();
-setInterval(loadTicker, 60000); // refresh every minute
+// Defer ticker until after page load so it doesn't compete with critical resources
+window.addEventListener('load', function() {
+  loadTicker();
+  setInterval(loadTicker, 60000);
+});
 </script>
 
 <!-- LANG BAR -->
@@ -1211,22 +1210,28 @@ const T = {
 function setLang(lang, e) {
   const t = T[lang];
   const root = document.getElementById('html-root');
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  if(e) e.target.classList.add('active');
-  if(lang === 'ar') {
-    document.body.classList.add('rtl');
-    root.setAttribute('lang','ar');
-    root.setAttribute('dir','rtl');
-  } else {
-    document.body.classList.remove('rtl');
-    root.setAttribute('lang',lang);
-    root.setAttribute('dir','ltr');
-  }
+  // READ phase: collect all attribute keys before touching the DOM
+  const updates = [];
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
-    if(t[key] !== undefined) el.innerHTML = t[key];
+    if(t[key] !== undefined) updates.push([el, t[key]]);
+  });
+  // WRITE phase: batch every DOM mutation in one animation frame
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    if(e) e.target.classList.add('active');
+    if(lang === 'ar') {
+      document.body.classList.add('rtl');
+      root.setAttribute('lang','ar');
+      root.setAttribute('dir','rtl');
+    } else {
+      document.body.classList.remove('rtl');
+      root.setAttribute('lang',lang);
+      root.setAttribute('dir','ltr');
+    }
+    updates.forEach(([el, html]) => { el.innerHTML = html; });
   });
 }
 </script>
-<div id="mobile-menu" style="display:none;position:fixed;top:105px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>function toggleMenu(){var m=document.getElementById("mobile-menu");m.style.display=m.style.display==="none"?"block":"none";}</script></body>
+<div id="mobile-menu" style="display:none;position:fixed;top:105px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>var _mOpen=false;function toggleMenu(){_mOpen=!_mOpen;document.getElementById("mobile-menu").style.display=_mOpen?"block":"none";}</script></body>
 </html>
