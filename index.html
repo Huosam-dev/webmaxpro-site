@@ -43,7 +43,10 @@
   "priceRange": "€200 - €875+"
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
 <style>
 :root {
   --gold: #c8a96e;
@@ -101,7 +104,7 @@ body.rtl .nav-links{flex-direction:row-reverse}
 .stat:last-child{border-right:none}
 body.rtl .stat{border-right:none;border-left:1px solid #1e1e1e}
 body.rtl .stat:last-child{border-left:none}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);font-weight:700;line-height:1}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;color:#7a5c00;font-weight:700;line-height:1}
 .stat-label{font-size:10px;color:#333;letter-spacing:3px;text-transform:uppercase;margin-top:8px}
 
 /* SECTIONS */
@@ -331,7 +334,7 @@ setInterval(loadTicker, 60000); // refresh every minute
 
 <!-- NAV -->
 <nav>
-  <button id="burger" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center"><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span></button><div class="logo"><svg class="logo-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
+  <button id="burger" onclick="toggleMenu()" aria-label="Toggle navigation menu" style="background:none;border:none;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center"><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span></button><div class="logo"><svg class="logo-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
   <div class="nav-links">
     <a href="#services" data-t="nav_services">Services</a>
     <a href="#gallery" data-t="nav_gallery">Gallery</a>
@@ -342,7 +345,7 @@ setInterval(loadTicker, 60000); // refresh every minute
     <a href="#contact" class="nav-cta" data-t="nav_cta">Start Project</a>
   </div>
 </nav>
-
+<main>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
@@ -806,7 +809,7 @@ setInterval(loadTicker, 60000); // refresh every minute
     <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View our packages (call to action)">View Packages</a>
   </div>
 </div>
-
+</main>
 <!-- FOOTER -->
 <footer>
   <svg class="logo-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>
