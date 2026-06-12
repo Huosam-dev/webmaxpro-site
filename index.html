@@ -86,7 +86,7 @@ body.rtl .nav-links{flex-direction:row-reverse}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
-.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=60') center/cover no-repeat;opacity:0.04}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=60&fm=webp') center/cover no-repeat;opacity:0.04}
 .hero-inner{position:relative;max-width:900px}
 .hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:6px 18px;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
@@ -238,6 +238,11 @@ body.rtl .wa-float{right:auto;left:30px}
   .stat{padding:22px 30px}
   .section{padding:70px 20px}
   .hero h1{font-size:42px}
+}
+/* Stop all infinite animations for users who prefer reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .logo-spin,.globe-3d,.globe-3d::after{animation:none}
+  #ticker-content{animation:none!important}
 }
 </style>
 </head>
@@ -410,7 +415,7 @@ window.addEventListener('load', function() {
 <!-- 3D IMAGE SECTION 1 -->
 <div style="height:3px;background:#d44060;width:100%"></div>
 <div style="width:100%;height:460px;position:relative;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80" alt="Digital technology and cryptocurrency data visualization" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.85)">
+  <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80&fm=webp" alt="Digital technology and cryptocurrency data visualization" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.85)">
   <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:absolute;top:50%;left:5%;transform:translateY(-50%);max-width:500px;padding:0 20px">
     <p style="font-size:11px;color:#c8a96e;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-family:'Montserrat',sans-serif">Digital Excellence</p>
@@ -789,7 +794,7 @@ window.addEventListener('load', function() {
 <!-- 3D IMAGE SECTION 2 -->
 <div style="height:3px;background:#d44060;width:100%"></div>
 <div style="width:100%;height:460px;position:relative;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80" alt="Web developer working on modern code and software development" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.8)">
+  <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80&fm=webp" alt="Web developer working on modern code and software development" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.8)">
   <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:absolute;top:50%;right:5%;transform:translateY(-50%);max-width:500px;padding:0 20px;text-align:right">
     <p style="font-size:11px;color:#c8a96e;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-family:'Montserrat',sans-serif">The Future is Now</p>
