@@ -47,6 +47,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preconnect" href="https://api.exchangerate-api.com">
+<link rel="preconnect" href="https://api.coingecko.com">
 <style>
 :root {
   --gold: #c8a96e;
@@ -311,7 +313,7 @@ async function loadTicker(){
     `;
     // Inject data then start scroll animation — skeleton stays static until this point
     el.innerHTML = items + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + items;
-    el.style.animation = 'ticker 40s linear infinite';
+    requestAnimationFrame(() => { el.style.animation = 'ticker 40s linear infinite'; });
   } catch(e) {
     el.innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable</span>';
     el.style.animation = 'none';
