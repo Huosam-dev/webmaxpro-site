@@ -338,7 +338,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
     <div class="hero-tag" data-t="hero_tag">Professional Web Solutions</div>
     <h1 data-t="hero_h1">We Build Websites<br><em>That Drive Results</em></h1>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
+      <a href="#contact" class="btn-primary" data-t="hero_btn1" aria-label="Start your project — go to contact section">Start Your Project</a>
       <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View our packages (hero section)">View Packages</a>
     </div>
   </div>
@@ -790,7 +790,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   <h2 style="margin-top:20px" data-t="cta_h2">Ready to Build Something <em>Extraordinary?</em></h2>
   <p data-t="cta_p">No templates. No shortcuts. Just exceptional digital work.</p>
   <div class="hero-btns">
-    <a href="https://wa.me/32495345140" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
+    <a href="https://wa.me/32495345140" class="btn-primary" data-t="hero_btn1" aria-label="Start your project via WhatsApp" target="_blank" rel="noopener noreferrer">Start Your Project</a>
     <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View our packages (call to action)">View Packages</a>
   </div>
 </div>
@@ -824,7 +824,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
    brief window before the translation table is idle-loaded after page load. */
 var _langPending = null;
 function setLang(lang, e) {
-  if (window._T) { _applyLang(lang, e); } else { _langPending = [lang, e]; }
+  if (window._T && window._T[lang]) { _applyLang(lang, e); } else { _langPending = [lang, e]; }
 }
 function _applyLang(lang, e) {
   var t = window._T[lang];
@@ -854,9 +854,9 @@ function _applyLang(lang, e) {
 window.addEventListener('load', function() {
   var idle = typeof requestIdleCallback !== 'undefined'
     ? requestIdleCallback : function(fn) { setTimeout(fn, 0); };
+  window._T = {};
   idle(function() {
-    window._T = {
-  en: {
+    window._T.en = {
     nav_services:"Services", nav_packages:"Packages", nav_process:"Process",
     nav_security:"Security", nav_contact:"Contact", nav_cta:"Start Project",
     hero_tag:"Professional Web Solutions",
@@ -953,8 +953,11 @@ window.addEventListener('load', function() {
     badge_cta:"Ready?", cta_h2:"Ready to Build Something <em>Extraordinary?</em>",
     cta_p:"No templates. No shortcuts. Just exceptional digital work.",
     footer_tag:"Where Code Meets Craft"
-  },
-  nl: {
+  };
+  if(_langPending&&_langPending[0]==='en'){_applyLang('en',_langPending[1]);_langPending=null;}
+  });
+  idle(function() {
+    window._T.nl = {
     nav_services:"Diensten", nav_packages:"Pakketten", nav_process:"Werkwijze",
     nav_security:"Beveiliging", nav_contact:"Contact", nav_cta:"Project Starten",
     hero_tag:"Professionele Weboplossingen",
@@ -1051,8 +1054,11 @@ window.addEventListener('load', function() {
     badge_cta:"Klaar?", cta_h2:"Klaar om Iets <em>Buitengewoons</em> te Bouwen?",
     cta_p:"Geen sjablonen. Geen snelkoppelingen. Alleen uitzonderlijk digitaal werk.",
     footer_tag:"Where Code Meets Craft"
-  },
-  de: {
+  };
+  if(_langPending&&_langPending[0]==='nl'){_applyLang('nl',_langPending[1]);_langPending=null;}
+  });
+  idle(function() {
+    window._T.de = {
     nav_services:"Leistungen", nav_packages:"Pakete", nav_process:"Prozess",
     nav_security:"Sicherheit", nav_contact:"Kontakt", nav_cta:"Projekt Starten",
     hero_tag:"Professionelle Weblösungen",
@@ -1143,8 +1149,11 @@ window.addEventListener('load', function() {
     badge_cta:"Bereit?", cta_h2:"Bereit, Etwas <em>Außergewöhnliches</em> zu Bauen?",
     cta_p:"Keine Vorlagen. Keine Abkürzungen. Nur außergewöhnliche digitale Arbeit.",
     footer_tag:"Where Code Meets Craft"
-  },
-  ar: {
+  };
+  if(_langPending&&_langPending[0]==='de'){_applyLang('de',_langPending[1]);_langPending=null;}
+  });
+  idle(function() {
+    window._T.ar = {
     nav_services:"الخدمات", nav_packages:"الباقات", nav_process:"منهجيتنا",
     nav_security:"الأمان", nav_contact:"تواصل معنا", nav_cta:"ابدأ مشروعك",
     hero_tag:"حلول ويب احترافية",
@@ -1239,9 +1248,8 @@ window.addEventListener('load', function() {
     badge_cta:"مستعد؟", cta_h2:"مستعد لبناء شيء <em>استثنائي؟</em>",
     cta_p:"لا قوالب. لا اختصارات. فقط عمل رقمي استثنائي.",
     footer_tag:"Where Code Meets Craft"
-  }
-    };
-    if (_langPending) { setLang(_langPending[0], _langPending[1]); _langPending = null; }
+  };
+  if(_langPending&&_langPending[0]==='ar'){_applyLang('ar',_langPending[1]);_langPending=null;}
   });
 });
 </script>
