@@ -122,6 +122,8 @@ h2 em{color:#7a5c00;font-style:italic}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:#1a1a1a;border:1px solid #1a1a1a}
 .service-card{background:var(--dark);padding:50px 36px;transition:all 0.4s}
 .service-card:hover{background:#151515}
+.service-card:hover h3{color:#dfc08a}
+.service-card:hover p{color:#aaa}
 .service-icon{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);letter-spacing:2px;margin-bottom:24px;opacity:0.7}
 .service-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#1a1a1a;margin-bottom:14px;font-weight:600}
 .service-card p{color:#111;font-size:13px;line-height:1.8}
@@ -163,7 +165,7 @@ body.rtl .why-quote{border-left:none;border-right:3px solid var(--gold)}
 .pkg-card.featured{background:#111111;border-top:3px solid var(--gold)}
 .pkg-name{font-size:11px;letter-spacing:4px;color:#aaaaaa;text-transform:uppercase;margin-bottom:20px}
 .pkg-price{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);font-weight:700;line-height:1;margin-bottom:8px}
-.pkg-price span{font-size:18px;color:#333}
+.pkg-price span{font-size:18px;color:#ffffff}
 .pkg-desc{color:#cccccc;font-size:13px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #444}
 .pkg-features{list-style:none;flex:1;margin-bottom:32px}
 .pkg-features li{color:#ffffff;font-size:13px;padding:8px 0;border-bottom:1px solid #333;list-style:none}
@@ -267,15 +269,15 @@ body.rtl .wa-float{right:auto;left:30px}
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en',event)">EN</button>
-  <button class="lang-btn" onclick="setLang('nl',event)">NL</button>
-  <button class="lang-btn" onclick="setLang('de',event)">DE</button>
-  <button class="lang-btn" onclick="setLang('ar',event)">عربي</button>
+  <button class="lang-btn active" aria-pressed="true" onclick="setLang('en',event)">EN</button>
+  <button class="lang-btn" aria-pressed="false" onclick="setLang('nl',event)">NL</button>
+  <button class="lang-btn" aria-pressed="false" onclick="setLang('de',event)">DE</button>
+  <button class="lang-btn" aria-pressed="false" lang="ar" onclick="setLang('ar',event)">عربي</button>
 </div>
 
 <!-- NAV -->
 <nav>
-  <button id="burger" onclick="toggleMenu()" aria-label="Toggle navigation menu" style="background:none;border:none;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center"><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span></button><div class="logo"><svg class="logo-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
+  <button id="burger" onclick="toggleMenu()" aria-label="Toggle navigation menu" style="background:none;border:none;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center"><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span></button><div class="logo"><svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
   <div class="nav-links">
     <a href="#services" data-t="nav_services">Services</a>
     <a href="#gallery" data-t="nav_gallery">Gallery</a>
@@ -374,7 +376,7 @@ body.rtl .wa-float{right:auto;left:30px}
 <a href="https://tallarestaurant.com" target="_blank" aria-label="Visit Talla Restaurant website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00 0%,#3d1a00 50%,#1a0a00 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#d4a056;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center">مطعم طلة تلاع العلي</p>
-    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Restaurant · Jordan</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Restaurant <span aria-hidden="true">·</span> Jordan</p>
     <div style="margin-top:8px;border:1px solid #d4a056;color:#d4a056;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -383,7 +385,7 @@ body.rtl .wa-float{right:auto;left:30px}
     <a href="https://nuevostylo.com" target="_blank" aria-label="Visit Nuevo Stylo Barbershop website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#d4af37;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">NUEVO STYLO</p>
-        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Barbershop · Maasmechelen</p>
+        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Barbershop <span aria-hidden="true">·</span> Maasmechelen</p>
         <div style="margin-top:8px;border:1px solid #d4af37;color:#d4af37;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
       </div>
     </a>
@@ -392,7 +394,7 @@ body.rtl .wa-float{right:auto;left:30px}
     <a href="https://sunny-kleicha-313c27.netlify.app" target="_blank" aria-label="Visit EU Tax Calculator website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b2a 0%,#1b3a5c 50%,#0d1b2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#c8a96e;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:2px">EU Tax Calculator</p>
-        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">European Tax Tool · Belgium</p>
+        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">European Tax Tool <span aria-hidden="true">·</span> Belgium</p>
         <div style="margin-top:8px;border:1px solid #c8a96e;color:#c8a96e;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
       </div>
     </a>
@@ -400,7 +402,7 @@ body.rtl .wa-float{right:auto;left:30px}
 <a href="https://getcvcraft.app" target="_blank" aria-label="Visit CVcraft AI CV Builder website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CVcraft</p>
-    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">AI CV Builder · Global</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">AI CV Builder <span aria-hidden="true">·</span> Global</p>
     <div style="margin-top:8px;border:1px solid #4fc3f7;color:#4fc3f7;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -408,7 +410,7 @@ body.rtl .wa-float{right:auto;left:30px}
 <a href="https://converal.com" target="_blank" aria-label="Visit Converal PDF Converter website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CONVERAL</p>
-    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">PDF Converter · Global</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">PDF Converter <span aria-hidden="true">·</span> Global</p>
     <div style="margin-top:8px;border:1px solid #4fc3f7;color:#4fc3f7;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -753,7 +755,7 @@ body.rtl .wa-float{right:auto;left:30px}
 </main>
 <!-- FOOTER -->
 <footer>
-  <svg class="logo-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>
+  <svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>
   <p style="color:#555;font-size:11px;letter-spacing:3px;margin-top:8px;text-transform:uppercase" data-t="footer_tag">Where Code Meets Craft</p>
   <div style="display:flex;gap:20px;justify-content:center;margin:24px 0 4px">
     <a href="https://linkedin.com/company/webmaxpro" aria-label="Follow WebMaxPro on LinkedIn" target="_blank" rel="noopener" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
@@ -791,8 +793,8 @@ function _applyLang(lang, e) {
     if (t[key] !== undefined) updates.push([el, t[key]]);
   });
   requestAnimationFrame(function() {
-    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
-    if (e) e.target.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    if (e) { e.target.classList.add('active'); e.target.setAttribute('aria-pressed','true'); }
     if (lang === 'ar') {
       document.body.classList.add('rtl');
       root.setAttribute('lang','ar');
