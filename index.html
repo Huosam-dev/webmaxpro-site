@@ -45,8 +45,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Cairo:wght@400;600;700&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Cairo:wght@400;600;700&display=swap"></noscript>
 <style>
 :root {
   --gold: #c8a96e;
@@ -94,6 +94,7 @@ nav{position:fixed;top:37px;width:100%;z-index:100;background:rgba(255,255,255,0
 body.rtl .lang-bar{direction:ltr}
 body.rtl nav{direction:ltr}
 body.rtl .nav-links{flex-direction:row-reverse}
+body.rtl h1,body.rtl h2,body.rtl h3,body.rtl p,body.rtl li,body.rtl a,body.rtl span,body.rtl div{font-family:'Cairo',sans-serif}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:126px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
