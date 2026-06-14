@@ -7,16 +7,21 @@
 <title>WebMaxPro — Website Maken | Web Design | تصميم مواقع</title>
 <meta name="description" content="Custom websites in English, Arabic, Dutch & German. E-commerce, booking systems & more. From €200. Fast delivery worldwide.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:image" content="https://webmaxpro.com/preview.png"> 
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <!-- Open Graph -->
 <meta property="og:title" content="WebMaxPro — Where Code Meets Craft">
 <meta property="og:description" content="Professional web design in 4 languages. Custom websites, e-commerce & booking systems from €200.">
 <meta property="og:url" content="https://webmaxpro.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="WebMaxPro">
 <meta property="og:locale" content="nl_BE">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:locale:alternate" content="ar_SA">
 <meta property="og:locale:alternate" content="de_DE">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebMaxPro — Where Code Meets Craft">
+<meta name="twitter:description" content="Professional web design in 4 languages. Custom websites, e-commerce & booking systems from €200.">
 
 <!-- hreflang -->
 <link rel="alternate" hreflang="nl" href="https://webmaxpro.com/"/>
@@ -33,14 +38,23 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://webmaxpro.com/#organization",
   "name": "WebMaxPro",
   "url": "https://webmaxpro.com",
+  "logo": "https://webmaxpro.com/favicon.svg",
   "email": "info@webmaxpro.com",
   "telephone": "+32495345140",
-  "description": "Professional web design and development in 4 languages",
+  "description": "Professional web design and development in 4 languages. Custom websites, e-commerce, booking systems from €200.",
   "areaServed": ["BE", "NL", "DE", "GB", "AE", "SA"],
   "availableLanguage": ["Dutch", "English", "German", "Arabic"],
-  "priceRange": "€200 - €875+"
+  "priceRange": "€200 - €875+",
+  "address": {"@type": "PostalAddress", "addressCountry": "BE"},
+  "sameAs": [
+    "https://linkedin.com/company/webmaxpro",
+    "https://instagram.com/webmaxpro",
+    "https://facebook.com/webmaxpro"
+  ],
+  "serviceType": ["Web Design", "E-Commerce Development", "Booking Systems", "Multilingual Web Development", "Security & Compliance"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -401,7 +415,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
 
    <!-- PROJECT 1: Talla Restaurant -->
-<a href="https://tallarestaurant.com" target="_blank" aria-label="Visit Talla Restaurant website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+<a href="https://tallarestaurant.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Talla Restaurant website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00 0%,#3d1a00 50%,#1a0a00 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#d4a056;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center">مطعم طلة تلاع العلي</p>
     <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Restaurant <span aria-hidden="true">·</span> Jordan</p>
@@ -410,7 +424,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 </a>
 
     <!-- NUEVO STYLO -->
-    <a href="https://nuevostylo.com" target="_blank" aria-label="Visit Nuevo Stylo Barbershop website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+    <a href="https://nuevostylo.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Nuevo Stylo Barbershop website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#d4af37;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">NUEVO STYLO</p>
         <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Barbershop <span aria-hidden="true">·</span> Maasmechelen</p>
@@ -419,7 +433,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
     </a>
 
     <!-- TAX CALCULATOR -->
-    <a href="https://sunny-kleicha-313c27.netlify.app" target="_blank" aria-label="Visit EU Tax Calculator website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+    <a href="https://sunny-kleicha-313c27.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Visit EU Tax Calculator website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b2a 0%,#1b3a5c 50%,#0d1b2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#c8a96e;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:2px">EU Tax Calculator</p>
         <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">European Tax Tool <span aria-hidden="true">·</span> Belgium</p>
@@ -427,7 +441,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
       </div>
     </a>
 <!-- CVCRAFT -->
-<a href="https://getcvcraft.app" target="_blank" aria-label="Visit CVcraft AI CV Builder website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+<a href="https://getcvcraft.app" target="_blank" rel="noopener noreferrer" aria-label="Visit CVcraft AI CV Builder website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CVcraft</p>
     <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">AI CV Builder <span aria-hidden="true">·</span> Global</p>
@@ -435,7 +449,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   </div>
 </a>
    <!-- CONVERAL -->
-<a href="https://converal.com" target="_blank" aria-label="Visit Converal PDF Converter website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+<a href="https://converal.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Converal PDF Converter website" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#f5f0e8;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CONVERAL</p>
     <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">PDF Converter <span aria-hidden="true">·</span> Global</p>
@@ -727,8 +741,8 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
       <h2 style="margin-top:20px" data-t="contact_h2">Let's Build Something <em>Together</em></h2>
       <p data-t="contact_p">Have a project in mind? Reach out and we'll help you shape the right solution, whether you need a new website, better integrations, or a smooth appointment flow.</p>
       <div class="contact-btns">
-        <a href="https://wa.me/32495345140" class="contact-btn" target="_blank"><span data-t="c_wa">WhatsApp Us</span></a>
-        <a href="https://calendly.com/tedvandijk19/new-meeting" class="contact-btn" target="_blank"><span data-t="c_meet">Schedule a Meeting</span></a>
+        <a href="https://wa.me/32495345140" class="contact-btn" target="_blank" rel="noopener noreferrer"><span data-t="c_wa">WhatsApp Us</span></a>
+        <a href="https://calendly.com/tedvandijk19/new-meeting" class="contact-btn" target="_blank" rel="noopener noreferrer"><span data-t="c_meet">Schedule a Meeting</span></a>
         <a href="mailto:info@webmaxpro.com" class="contact-btn"><span data-t="c_email">Send Us an Email</span></a>
         <a href="tel:+32495345140" class="contact-btn"><span data-t="c_call">+32 495 345 140</span></a>
       </div>
@@ -786,16 +800,16 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   <div class="logo" style="justify-content:center;color:#1a1a1a"><svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
   <p style="color:#555;font-size:11px;letter-spacing:3px;margin-top:8px;text-transform:uppercase" data-t="footer_tag">Where Code Meets Craft</p>
   <div style="display:flex;gap:20px;justify-content:center;margin:24px 0 4px">
-    <a href="https://linkedin.com/company/webmaxpro" aria-label="Follow WebMaxPro on LinkedIn" target="_blank" rel="noopener" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
+    <a href="https://linkedin.com/company/webmaxpro" aria-label="Follow WebMaxPro on LinkedIn" target="_blank" rel="noopener noreferrer" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
-    <a href="https://instagram.com/webmaxpro" aria-label="Follow WebMaxPro on Instagram" target="_blank" rel="noopener" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
+    <a href="https://instagram.com/webmaxpro" aria-label="Follow WebMaxPro on Instagram" target="_blank" rel="noopener noreferrer" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
-    <a href="https://facebook.com/webmaxpro" aria-label="Follow WebMaxPro on Facebook" target="_blank" rel="noopener" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
+    <a href="https://facebook.com/webmaxpro" aria-label="Follow WebMaxPro on Facebook" target="_blank" rel="noopener noreferrer" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </a>
-    <a href="https://wa.me/32495345140" aria-label="Contact WebMaxPro on WhatsApp" target="_blank" rel="noopener" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
+    <a href="https://wa.me/32495345140" aria-label="Contact WebMaxPro on WhatsApp" target="_blank" rel="noopener noreferrer" style="color:#555;text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='#c8a96e'" onmouseout="this.style.color='#555'">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
   </div>
