@@ -115,7 +115,7 @@ body.rtl .logo{font-family:'Cormorant Garamond',serif}
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:126px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
 .hero-inner{position:relative;max-width:900px}
-.hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:6px 18px;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
+.hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:8px 22px;font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif;font-weight:700}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
 .hero h1 em{color:#7a5c00;font-style:italic}
 .hero-sub{font-size:13px;color:#555;letter-spacing:3px;text-transform:uppercase;margin-bottom:50px}
@@ -143,7 +143,7 @@ body.rtl .stat:last-child{border-left:none}
 .section-dark{background:var(--dark);padding:100px 20px;border-top:3px solid #d44060}
 .section-dark .section{background:transparent}
 .section-title-wrap{text-align:center;margin-bottom:70px}
-.section-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:#7a5c00;padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+.section-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.5);color:#1a1a1a;padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
 h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);color:#1a1a1a;line-height:1.1;font-weight:700}
 h2 em{color:#7a5c00;font-style:italic}
 .section-desc{color:#555;font-size:14px;line-height:1.8;margin-top:16px;max-width:600px;margin-left:auto;margin-right:auto}
@@ -336,7 +336,6 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   <div class="hero-inner">
     <div class="hero-tag" data-t="hero_tag">Professional Web Solutions</div>
     <h1 data-t="hero_h1">We Build Websites<br><em>That Drive Results</em></h1>
-    <p class="hero-sub" data-t="hero_sub">4 Languages · No Hidden Fees</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
       <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View our packages (hero section)">View Packages</a>
@@ -408,9 +407,9 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <!-- GALLERY -->
 <div id="gallery" class="section">
   <div class="section-title-wrap">
-    <div class="section-badge">Our Work</div>
-    <h2>Our <em>Portfolio</em></h2>
-    <p class="section-desc">A curated showcase of websites we have built for our clients.</p>
+    <div class="section-badge" data-t="badge_gallery">Our Work</div>
+    <h2 data-t="gallery_h2">Our <em>Portfolio</em></h2>
+    <p class="section-desc" data-t="gallery_desc">A curated showcase of websites we have built for our clients.</p>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
 
@@ -861,7 +860,6 @@ window.addEventListener('load', function() {
     nav_security:"Security", nav_contact:"Contact", nav_cta:"Start Project",
     hero_tag:"Professional Web Solutions",
     hero_h1:"We Build Websites<br><em>That Drive Results</em>",
-    hero_sub:"4 Languages · No Hidden Fees",
     hero_btn1:"Start Your Project", hero_btn2:"View Packages",
     stat1:"Projects Complete", stat2:"Happy Clients", stat3:"Success Rate", stat4:"Support",
     badge_services:"Core Services",
@@ -873,6 +871,7 @@ window.addEventListener('load', function() {
     s4_name:"Smart User Dashboard", s4_desc:"Client dashboards to manage orders, content, and project status.",
     s5_name:"Security & Compliance", s5_desc:"SSL, DDoS protection, firewall, and GDPR-compliant legal pages.",
     s6_name:"Multilingual Architecture", s6_desc:"Native Arabic, English, German, and Dutch with full RTL support.",
+    badge_gallery:"Our Work", gallery_h2:"Our <em>Portfolio</em>", gallery_desc:"A curated showcase of websites we have built for our clients.",
     badge_serve:"Who We Serve", serve_h2:"Built for <em>Ambitious</em> Businesses",
     c1_name:"Restaurants & Hospitality", c1_desc:"Clear menus, reservation systems, multilingual guest experiences.",
     c2_name:"E-Commerce & Retail", c2_desc:"Online stores with shipping integrations and conversion-focused design.",
@@ -959,7 +958,6 @@ window.addEventListener('load', function() {
     nav_security:"Beveiliging", nav_contact:"Contact", nav_cta:"Project Starten",
     hero_tag:"Professionele Weboplossingen",
     hero_h1:"Wij Bouwen Websites<br><em>Die Resultaten Opleveren</em>",
-    hero_sub:"4 Talen · Geen Verborgen Kosten",
     hero_btn1:"Project Starten", hero_btn2:"Pakketten Bekijken",
     stat1:"Voltooide Projecten", stat2:"Tevreden Klanten", stat3:"Slagingspercentage", stat4:"Support",
     badge_services:"Onze Diensten",
@@ -971,6 +969,7 @@ window.addEventListener('load', function() {
     s4_name:"Slim Gebruikersdashboard", s4_desc:"Klantportalen voor het beheren van bestellingen en projectstatus.",
     s5_name:"Beveiliging & Compliance", s5_desc:"SSL, DDoS-bescherming, firewall en GDPR-conforme juridische pagina's.",
     s6_name:"Meertalige Architectuur", s6_desc:"Arabisch, Engels, Duits en Nederlands met volledige RTL-ondersteuning.",
+    badge_gallery:"Ons Werk", gallery_h2:"Ons <em>Portfolio</em>", gallery_desc:"Een zorgvuldige selectie van websites die wij voor onze klanten hebben gebouwd.",
     badge_serve:"Voor Wie", serve_h2:"Gebouwd voor <em>Ambitieuze</em> Bedrijven",
     c1_name:"Restaurants & Horeca", c1_desc:"Duidelijke menu's, reserveringssystemen en meertalige gastvaring.",
     c2_name:"E-Commerce & Retail", c2_desc:"Webshops met verzendintegraties en conversiegericht ontwerp.",
@@ -1057,7 +1056,6 @@ window.addEventListener('load', function() {
     nav_security:"Sicherheit", nav_contact:"Kontakt", nav_cta:"Projekt Starten",
     hero_tag:"Professionelle Weblösungen",
     hero_h1:"Wir Erstellen Websites<br><em>Die Ergebnisse Liefern</em>",
-    hero_sub:"4 Sprachen · Keine Versteckten Kosten",
     hero_btn1:"Projekt Starten", hero_btn2:"Pakete Ansehen",
     stat1:"Abgeschlossene Projekte", stat2:"Zufriedene Kunden", stat3:"Erfolgsquote", stat4:"Support",
     badge_services:"Unsere Leistungen",
@@ -1069,6 +1067,7 @@ window.addEventListener('load', function() {
     s4_name:"Intelligentes Dashboard", s4_desc:"Kundenportale zur Verwaltung von Bestellungen und Projektstatus.",
     s5_name:"Sicherheit & Compliance", s5_desc:"SSL, DDoS-Schutz, Firewall und DSGVO-konforme Seiten.",
     s6_name:"Mehrsprachige Architektur", s6_desc:"Arabisch, Englisch, Deutsch und Niederländisch mit RTL-Unterstützung.",
+    badge_gallery:"Unsere Arbeit", gallery_h2:"Unser <em>Portfolio</em>", gallery_desc:"Eine kuratierte Auswahl der Websites, die wir für unsere Kunden entwickelt haben.",
     badge_serve:"Für Wen", serve_h2:"Für <em>Ambitionierte</em> Unternehmen",
     c1_name:"Restaurants & Gastronomie", c1_desc:"Klare Speisekarten, Reservierungssysteme und mehrsprachige Gasterlebnisse.",
     c2_name:"E-Commerce & Einzelhandel", c2_desc:"Onlineshops mit Versandintegrationen und konversionsorientiertem Design.",
@@ -1149,7 +1148,6 @@ window.addEventListener('load', function() {
     nav_security:"الأمان", nav_contact:"تواصل معنا", nav_cta:"ابدأ مشروعك",
     hero_tag:"حلول ويب احترافية",
     hero_h1:"نبني مواقع إلكترونية<br><em>تحقق نتائج حقيقية</em>",
-    hero_sub:"4 لغات · بدون رسوم خفية",
     hero_btn1:"ابدأ مشروعك", hero_btn2:"عرض الباقات",
     stat1:"مشاريع مكتملة", stat2:"عملاء راضون", stat3:"معدل النجاح", stat4:"دعم",
     badge_services:"خدماتنا الأساسية",
@@ -1161,6 +1159,7 @@ window.addEventListener('load', function() {
     s4_name:"لوحة تحكم ذكية", s4_desc:"بوابات العملاء لإدارة الطلبات والمحتوى وحالة المشروع.",
     s5_name:"الأمان والامتثال", s5_desc:"شهادات SSL وحماية DDoS وجدار حماية وصفحات متوافقة مع GDPR.",
     s6_name:"بنية متعددة اللغات", s6_desc:"دعم كامل للعربية والإنجليزية والألمانية والهولندية مع RTL.",
+    badge_gallery:"أعمالنا", gallery_h2:"معرض <em>أعمالنا</em>", gallery_desc:"عرض مختار لمواقع الويب التي بنيناها لعملائنا.",
     badge_serve:"من نخدم", serve_h2:"مبني للأعمال <em>الطموحة</em>",
     c1_name:"المطاعم والضيافة", c1_desc:"قوائم واضحة وأنظمة حجز وتجارب ضيوف متعددة اللغات.",
     c2_name:"التجارة الإلكترونية والتجزئة", c2_desc:"متاجر عبر الإنترنت مع تكاملات الشحن وتصميم يركز على التحويل.",
