@@ -280,6 +280,9 @@ body.rtl .wa-float{right:auto;left:30px}
   .hero-btns{flex-direction:column;align-items:stretch;gap:12px}
   .pkg-card{padding:32px 20px}
 }
+/* Mobile menu Arabic override — inline style has highest specificity so use !important */
+body.rtl #mobile-menu{direction:rtl;text-align:right}
+body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:0!important;text-transform:none!important;direction:rtl;text-align:right}
 /* CTA banner is near-black: restore lighter gold so contrast passes there too */
 .cta-banner .section-badge{color:#dfc08a}
 .cta-banner h2 em{color:#dfc08a}
