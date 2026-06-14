@@ -8,6 +8,7 @@
 <meta name="description" content="Custom websites in English, Arabic, Dutch & German. E-commerce, booking systems & more. From €200. Fast delivery worldwide.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#ffffff">
 <!-- Open Graph -->
 <meta property="og:title" content="WebMaxPro — Where Code Meets Craft">
 <meta property="og:description" content="Professional web design in 4 languages. Custom websites, e-commerce & booking systems from €200.">
@@ -59,50 +60,60 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap"></noscript>
+<link rel="preconnect" href="https://images.unsplash.com">
+<!-- Preload the two critical font files so FCP/LCP don't wait for them -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=optional" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=optional"></noscript>
 <style>
-:root {
-  --gold: #c8a96e;
-  --gold-light: #dfc08a;
-  --gold-dark: #9a7840;
-  --black: #ffffff;
-  --dark: #ffffff;
-  --dark2: #f5f5f5;
-  --gray: #444;
-  --white: #1a1a1a;
-}
+:root{--gold:#f97316;--gold-light:#fdba74;--gold-dark:#c2410c;--red:#c41230;--border:#e8e8e8;--text:#1a1a1a;--muted:#666}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
-body{font-family:'Montserrat',sans-serif;background:var(--black);color:#1a1a1a;overflow-x:hidden;max-width:100%}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--text);overflow-x:hidden;max-width:100%}
 body.rtl{direction:rtl;text-align:right}
-body.rtl .section-title-wrap{text-align:right}
-body.rtl .section-desc{text-align:right}
-body.rtl .lang-card{text-align:right}
-body.rtl .lang-card p{text-align:right}
+body.rtl .section-title-wrap,body.rtl .section-desc,body.rtl .lang-card,body.rtl .lang-card p{text-align:right}
 body.rtl .service-card,body.rtl .service-card h3,body.rtl .service-card p{text-align:right;direction:rtl}
 body.rtl .service-icon{direction:ltr!important;unicode-bidi:isolate!important;text-align:left}
-body.rtl .serve-card,body.rtl .serve-card h3,body.rtl .serve-card p{text-align:right;direction:rtl}
-body.rtl .why-card,body.rtl .why-card h3,body.rtl .why-card p{text-align:right;direction:rtl}
-body.rtl .pkg-card,body.rtl .pkg-name,body.rtl .pkg-price,body.rtl .pkg-desc,body.rtl .pkg-features li{text-align:right;direction:rtl}
+body.rtl .serve-card,body.rtl .serve-card h3,body.rtl .serve-card p,body.rtl .why-card,body.rtl .why-card h3,body.rtl .why-card p,body.rtl .pkg-card,body.rtl .pkg-name,body.rtl .pkg-price,body.rtl .pkg-desc,body.rtl .pkg-features li{text-align:right;direction:rtl}
 body.rtl .pay-stat,body.rtl .pay-stat-label{text-align:right;direction:rtl}
 body.rtl .pay-stat-num{direction:ltr!important;unicode-bidi:isolate!important;font-family:'Cormorant Garamond',serif!important}
 
 /* LANG BAR */
-.lang-bar{position:fixed;top:0;width:100%;z-index:200;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;padding:8px 40px;gap:6px}
-.lang-btn{background:none;border:1px solid #333;color:#333;padding:5px 14px;font-size:11px;cursor:pointer;letter-spacing:2px;font-family:'Montserrat',sans-serif;transition:all 0.3s;text-transform:uppercase}
-.lang-btn:hover,.lang-btn.active{border-color:#c41230;color:#c41230}
+.lang-bar{position:fixed;top:0;width:100%;z-index:200;background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:flex-end;align-items:center;padding:6px 40px}
+.lang-dropdown{position:relative}
+.lang-toggle{background:#fff;border:1px solid #ddd;color:#333;padding:6px 12px;font-size:11px;cursor:pointer;letter-spacing:1.5px;font-family:'Montserrat',sans-serif;transition:all 0.25s;text-transform:uppercase;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.lang-toggle:hover,.lang-toggle.open{border-color:var(--red);color:var(--red)}
+.lang-chevron{transition:transform 0.25s;display:block}
+.lang-toggle.open .lang-chevron{transform:rotate(180deg)}
+.lang-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid #e0e0e0;box-shadow:0 16px 48px rgba(0,0,0,0.12);min-width:180px;z-index:300}
+.lang-menu.open{display:block;animation:fdIn .15s ease}
+.lang-option{display:block;width:100%;background:none;border:none;padding:11px 16px;text-align:left;font-size:11px;font-family:'Montserrat',sans-serif;cursor:pointer;color:#555;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;border-bottom:1px solid #f2f2f2}
+.lang-option:last-child{border-bottom:none}
+.lang-option:hover{background:#fdf9f2;color:var(--red);padding-left:22px}
+.lang-option.active{color:var(--red);font-weight:700;background:#fdf9f2}
+@keyframes fdIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 
 /* NAV */
-nav{position:fixed;top:37px;width:100%;z-index:100;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:space-between;align-items:center;padding:18px 40px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:24px;color:#1a1a1a;letter-spacing:4px;font-weight:700;display:flex;align-items:center}
-.logo span{color:#c41230;font-weight:400}
- @keyframes spin-logo{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.logo-spin{display:inline-block;width:34px;height:34px;vertical-align:middle;margin-right:10px;animation:spin-logo 8s linear infinite;}
+nav{position:fixed;top:37px;width:100%;z-index:100;background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:16px 40px;transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.07)}
+#burger{display:none;background:none;border:none;cursor:pointer;padding:6px 4px;flex-direction:column;gap:5px;justify-content:center;align-items:flex-end}
+#burger span{display:block;height:2px;background:#1a1a1a;transition:all 0.3s;transform-origin:center}
+#burger span:nth-child(1){width:24px}
+#burger span:nth-child(2){width:18px}
+#burger span:nth-child(3){width:24px}
+#burger.open span:nth-child(1){width:24px;transform:translateY(7px) rotate(45deg)}
+#burger.open span:nth-child(2){opacity:0;width:0}
+#burger.open span:nth-child(3){width:24px;transform:translateY(-7px) rotate(-45deg)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;color:#1a1a1a;letter-spacing:4px;font-weight:700;display:flex;align-items:center;text-decoration:none}
+.logo span{color:var(--red);font-weight:400}
+@keyframes spin-logo{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.logo-spin{display:inline-block;width:34px;height:34px;vertical-align:middle;margin-right:10px;animation:spin-logo 8s linear infinite;will-change:transform}
 .nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{color:#000;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color 0.3s;font-weight:600}
+.nav-links a{color:#111;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color 0.25s;font-weight:600;position:relative}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold-dark);transition:width 0.3s}
+.nav-links a:not(.nav-cta):hover::after{width:100%}
 .nav-links a:hover{color:var(--gold-dark)}
-.nav-cta{background:#c41230!important;color:#fff!important;padding:10px 22px;font-weight:600}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:10px 22px;font-weight:600}
+.nav-cta:hover{background:#a50f28!important}
 body.rtl .lang-bar{direction:ltr}
 body.rtl nav{direction:ltr}
 body.rtl .nav-links{flex-direction:row-reverse}
@@ -113,116 +124,127 @@ body.rtl nav,body.rtl nav *,body.rtl .lang-bar,body.rtl .lang-bar *,body.rtl .lo
 body.rtl .logo{font-family:'Cormorant Garamond',serif}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:126px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
-.hero-inner{position:relative;max-width:900px}
-.hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:8px 22px;font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif;font-weight:700}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
-.hero h1 em{color:#7a5c00;font-style:italic}
-.hero-sub{font-size:13px;color:#444;letter-spacing:3px;text-transform:uppercase;margin-bottom:50px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px;position:relative;overflow:hidden;background:#fff}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(196,18,48,0.035) 0%,transparent 55%);pointer-events:none}
+.hero-inner{position:relative;max-width:920px;width:100%}
+.hero-tag{display:inline-block;border:1px solid var(--red);color:var(--red);background:transparent;padding:7px 22px;font-size:11px;letter-spacing:5px;text-transform:uppercase;margin-bottom:32px;font-family:'Montserrat',sans-serif;font-weight:700}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.5vw,92px);line-height:1.04;color:#111;margin-bottom:20px;font-weight:700}
+.hero h1 em{color:#c2410c;font-style:italic}
+.hero-sub{font-size:11px;color:#666;letter-spacing:4px;text-transform:uppercase;margin-bottom:52px;display:flex;align-items:center;justify-content:center;gap:14px}
+.hero-sub::before,.hero-sub::after{content:'';display:block;width:36px;height:1px;background:#ddd}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-primary{display:inline-block;padding:16px 44px;background:linear-gradient(135deg,#c41230,#8b0d22);color:var(--black);text-decoration:none;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;font-family:'Montserrat',sans-serif;border:none;cursor:pointer}
-.btn-primary:hover{background:linear-gradient(135deg,#d41535,#c41230);transform:translateY(-2px)}
-.btn-secondary{display:inline-block;padding:16px 44px;border:1px solid var(--gold);color:#1a1a1a;text-decoration:none;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;background:none;cursor:pointer;font-family:'Montserrat',sans-serif}
-.btn-secondary:hover{background:var(--gold);color:var(--black)}
+
+/* BUTTONS */
+.btn-primary{display:inline-block;padding:15px 44px;background:linear-gradient(135deg,var(--red),#8b0d22);color:#fff;text-decoration:none;font-weight:600;font-size:11px;letter-spacing:3px;text-transform:uppercase;transition:all 0.3s;font-family:'Montserrat',sans-serif;border:none;cursor:pointer;position:relative}
+.btn-primary:hover{background:linear-gradient(135deg,#d41535,var(--red));transform:translateY(-2px);box-shadow:0 8px 28px rgba(196,18,48,0.28)}
+.btn-secondary{display:inline-block;padding:15px 44px;border:1px solid var(--gold);color:#1a1a1a;text-decoration:none;font-weight:500;font-size:11px;letter-spacing:3px;text-transform:uppercase;transition:all 0.3s;background:none;cursor:pointer;font-family:'Montserrat',sans-serif}
+.btn-secondary:hover{background:var(--gold);color:#fff;transform:translateY(-2px)}
 .cta-banner .btn-secondary{border-color:var(--gold);color:var(--gold)}
-.cta-banner .btn-secondary:hover{background:var(--gold)}
+.cta-banner .btn-secondary:hover{background:var(--gold);color:#1a1a1a}
 .pkg-card .btn-secondary{color:#dfc08a;border-color:#dfc08a}
 .pkg-card .btn-secondary:hover{background:#dfc08a;color:#1a1a1a}
 
 /* STATS */
-.stats{background:var(--dark);border-top:3px solid #d44060;border-bottom:1px solid #ddd;display:flex;justify-content:center;flex-wrap:wrap}
-.stat{padding:32px 60px;text-align:center;border-right:1px solid #1e1e1e}
+.stats{background:#fafaf9;border-top:3px solid var(--red);border-bottom:1px solid #ebebeb;display:flex;justify-content:center;flex-wrap:wrap}
+.stat{padding:36px 56px;text-align:center;border-right:1px solid #e0e0e0}
 .stat:last-child{border-right:none}
-body.rtl .stat{border-right:none;border-left:1px solid #1e1e1e}
+body.rtl .stat{border-right:none;border-left:1px solid #e0e0e0}
 body.rtl .stat:last-child{border-left:none}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;color:#7a5c00;font-weight:700;line-height:1}
-.stat-label{font-size:10px;color:#333;letter-spacing:3px;text-transform:uppercase;margin-top:8px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:46px;color:#c2410c;font-weight:700;line-height:1}
+.stat-label{font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:8px}
 
 /* SECTIONS */
-.section{padding:100px 20px;max-width:1100px;margin:0 auto}
-.section-dark{background:var(--dark);padding:100px 20px;border-top:3px solid #d44060}
+.section{padding:100px 24px;max-width:1100px;margin:0 auto}
+.section-dark{background:#f8f7f5;padding:100px 24px;border-top:3px solid #e8e2d6}
 .section-dark .section{background:transparent}
 .section-title-wrap{text-align:center;margin-bottom:70px}
-.section-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.5);color:#1a1a1a;padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);color:#1a1a1a;line-height:1.1;font-weight:700}
-h2 em{color:#7a5c00;font-style:italic}
-.section-desc{color:#444;font-size:14px;line-height:1.8;margin-top:16px;max-width:600px;margin-left:auto;margin-right:auto}
+.section-badge{display:inline-block;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.4);color:#9a3412;padding:5px 18px;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,56px);color:#111;line-height:1.1;font-weight:700}
+h2 em{color:#c2410c;font-style:italic}
+.section-desc{color:#666;font-size:14px;line-height:1.85;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto}
 
 /* SERVICES GRID */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:#1a1a1a;border:1px solid #1a1a1a}
-.service-card{background:var(--dark);padding:50px 36px;transition:all 0.4s}
-.service-card:hover{background:#151515}
-.service-card:hover h3{color:#dfc08a}
-.service-card:hover p{color:#aaa}
-.service-icon{font-family:'Montserrat',sans-serif;font-size:16px;color:#7a5c00;letter-spacing:3px;margin-bottom:24px;font-weight:600;direction:ltr;unicode-bidi:embed}
-.service-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#000;margin-bottom:14px;font-weight:600}
-.service-card p{color:#000;font-size:13px;line-height:1.8}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:#e0e0e0;border:1px solid #e0e0e0;overflow:hidden}
+.service-card{background:#fff;padding:48px 36px;transition:all 0.35s;position:relative;overflow:hidden;contain:layout style}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 0.4s}
+.service-card:hover{background:#fdf9f4}
+.service-card:hover::after{width:100%}
+.service-icon{font-family:'Montserrat',sans-serif;font-size:13px;color:#c2410c;letter-spacing:3px;margin-bottom:22px;font-weight:700;direction:ltr;unicode-bidi:embed}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#111;margin-bottom:12px;font-weight:600}
+.service-card p{color:#666;font-size:13px;line-height:1.9}
 
 /* WHO WE SERVE */
-.serve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#1a1a1a}
-.serve-card{background:var(--black);padding:44px 32px;border-left:3px solid transparent;transition:all 0.3s}
-.serve-card:hover{border-left-color:var(--gold);background:#0d0d0d}
-.serve-card:hover h3{color:#dfc08a}.serve-card:hover p{color:#cccccc}
+.serve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#e0e0e0}
+.serve-card{background:#f8f7f5;padding:44px 32px;border-left:3px solid transparent;transition:all 0.3s}
+.serve-card:hover{border-left-color:var(--gold);background:#fff;transform:translateX(3px)}
+.serve-card:hover h3{color:#c2410c}
+.serve-card:hover p{color:#444}
 body.rtl .serve-card{border-left:none;border-right:3px solid transparent}
-body.rtl .serve-card:hover{border-right-color:var(--gold)}
-.serve-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1a1a1a;margin-bottom:14px}
-.serve-card p{color:#333;font-size:13px;line-height:1.8}
+body.rtl .serve-card:hover{border-right-color:var(--gold);transform:translateX(-3px)}
+.serve-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#111;margin-bottom:12px;transition:color 0.3s}
+.serve-card p{color:#666;font-size:13px;line-height:1.8;transition:color 0.3s}
 
 /* PROCESS */
-.process-list{display:flex;flex-direction:column;gap:0;max-width:900px;margin:0 auto}
-.process-item{display:flex;gap:30px;align-items:flex-start;padding:40px 0;border-bottom:1px solid #ddd}
+.process-list{display:flex;flex-direction:column;max-width:900px;margin:0 auto}
+.process-item{display:flex;gap:32px;align-items:flex-start;padding:44px 0;border-bottom:1px solid #eee}
 .process-item:last-child{border-bottom:none}
 body.rtl .process-item{flex-direction:row-reverse}
-.process-num{font-family:'Montserrat',sans-serif;font-size:60px;color:rgba(201,168,76,0.7);font-weight:700;line-height:1;flex:0 0 70px;text-align:center}
-.process-content{flex:1;min-width:0}
+.process-num{font-family:'Cormorant Garamond',serif;font-size:66px;color:var(--gold-dark);font-weight:700;line-height:1;flex:0 0 76px;text-align:center;transition:color 0.3s}
+.process-item:hover .process-num{color:rgba(196,18,48,0.35)}
+.process-content{flex:1;min-width:0;padding-top:10px}
 body.rtl .process-content{text-align:right;direction:rtl}
 body.rtl .process-content h3,body.rtl .process-content p{text-align:right}
-.process-content h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#111;margin-bottom:12px}
-.process-content p{color:#000;font-size:13px;line-height:1.8}
+.process-content h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#111;margin-bottom:10px;font-weight:600}
+.process-content p{color:#666;font-size:13px;line-height:1.9}
 
 /* WHY */
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-.why-card{border:1px solid #1a1a1a;padding:40px 30px;transition:all 0.3s}
-.why-card:hover{border-color:rgba(201,168,76,0.3)}
-.why-icon{font-family:'Montserrat',sans-serif;font-size:16px;color:#7a5c00;margin-bottom:18px;letter-spacing:3px;font-weight:600;direction:ltr;unicode-bidi:embed}
-.why-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1a1a1a;margin-bottom:12px}
-.why-card p{color:#333;font-size:13px;line-height:1.8}
-.why-quote{border-left:3px solid var(--gold);padding:24px 30px;background:rgba(201,168,76,0.04);margin:60px 0;font-family:'Cormorant Garamond',serif;font-size:22px;color:#333;font-style:italic;line-height:1.7}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.why-card{border:1px solid #e8e8e8;padding:40px 30px;transition:all 0.3s;background:#fff;position:relative;overflow:hidden;contain:layout style}
+.why-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.4s}
+.why-card:hover{border-color:rgba(249,115,22,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.06);transform:translateY(-3px)}
+.why-card:hover::before{height:100%}
+.why-icon{font-family:'Montserrat',sans-serif;font-size:12px;color:#c2410c;margin-bottom:18px;letter-spacing:4px;font-weight:700;direction:ltr;unicode-bidi:embed}
+.why-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#111;margin-bottom:10px}
+.why-card p{color:#666;font-size:13px;line-height:1.8}
+.why-quote{border-left:3px solid var(--gold);padding:28px 32px;background:rgba(249,115,22,0.04);margin:60px 0;font-family:'Cormorant Garamond',serif;font-size:22px;color:#555;font-style:italic;line-height:1.75}
 body.rtl .why-quote{border-left:none;border-right:3px solid var(--gold)}
 
 /* PACKAGES */
-.packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#1a1a1a}
-.pkg-card{background:#1a1a1a;padding:44px 32px;display:flex;flex-direction:column}
-.pkg-card.featured{background:#111111;border-top:3px solid var(--gold)}
-.pkg-name{font-size:11px;letter-spacing:4px;color:#aaaaaa;text-transform:uppercase;margin-bottom:20px}
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#111}
+.pkg-card{background:#1a1a1a;padding:44px 32px;display:flex;flex-direction:column;transition:background 0.3s;contain:layout style}
+.pkg-card:hover{background:#141414}
+.pkg-card.featured{background:#0f0f0f;border-top:3px solid var(--gold)}
+.pkg-name{font-size:10px;letter-spacing:5px;color:#888;text-transform:uppercase;margin-bottom:20px;font-family:'Montserrat',sans-serif}
 .pkg-price{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);font-weight:700;line-height:1;margin-bottom:8px}
-.pkg-price span{font-size:18px;color:#ffffff}
-.pkg-desc{color:#cccccc;font-size:13px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #444}
+.pkg-price span{font-size:18px;color:#aaa}
+.pkg-desc{color:#aaa;font-size:13px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #2e2e2e;line-height:1.7}
 .pkg-features{list-style:none;flex:1;margin-bottom:32px}
-.pkg-features li{color:#ffffff;font-size:13px;padding:8px 0;border-bottom:1px solid #333;list-style:none}
-.pkg-features li::before{content:'';display:none}
+.pkg-features li{color:#ccc;font-size:13px;padding:9px 0;border-bottom:1px solid #252525;display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.pkg-features li::before{content:'—';color:var(--gold);font-size:11px;flex-shrink:0;margin-top:1px}
 body.rtl .pkg-features li{flex-direction:row-reverse}
-body.rtl .pkg-features li::before{content:'—'}
 
 /* PAYMENTS */
-.payments-box{background:var(--dark);border:1px solid #1e1e1e;padding:50px 40px;max-width:700px;margin:0 auto}
-.payments-box h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:#1a1a1a;margin-bottom:16px}
-.payments-box p{color:#333;font-size:13px;line-height:1.8;margin-bottom:30px}
-.pay-methods{display:flex;flex-wrap:wrap;gap:12px}
-.pay-method{border:1px solid #1e1e1e;padding:10px 18px;font-size:12px;color:#444;letter-spacing:1px}
-.pay-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#1e1e1e;margin-top:40px}
-.pay-stat{background:var(--dark);padding:28px;text-align:center}
-.pay-stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:#c41230;font-weight:700;white-space:nowrap;direction:ltr;unicode-bidi:embed}
-.pay-stat-label{font-size:11px;color:#333;margin-top:6px}
+.payments-box{background:#fff;border:1px solid #e8e8e8;padding:50px 44px;max-width:720px;margin:0 auto;box-shadow:0 4px 32px rgba(0,0,0,0.05)}
+.payments-box h3{font-family:'Cormorant Garamond',serif;font-size:30px;color:#111;margin-bottom:14px}
+.payments-box p{color:#666;font-size:13px;line-height:1.8;margin-bottom:28px}
+.pay-methods{display:flex;flex-wrap:wrap;gap:10px}
+.pay-method{border:1px solid #e0e0e0;padding:9px 16px;font-size:12px;color:#555;letter-spacing:1px;font-family:'Montserrat',sans-serif;transition:all 0.2s}
+.pay-method:hover{border-color:var(--gold);color:#c2410c}
+.pay-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#e8e8e8;margin-top:40px}
+.pay-stat{background:#fff;padding:28px;text-align:center}
+.pay-stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--red);font-weight:700;white-space:nowrap;direction:ltr;unicode-bidi:embed}
+.pay-stat-label{font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:2px;text-transform:uppercase}
 
 /* SECURITY */
-.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#1a1a1a}
-.sec-card{background:var(--dark);padding:40px 32px}
-.sec-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1a1a1a;margin-bottom:14px}
-.sec-card p{color:#333;font-size:13px;line-height:1.8}
+.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#e0e0e0}
+.sec-card{background:#fff;padding:44px 32px;transition:background 0.3s}
+.sec-card:hover{background:#fafaf8}
+.sec-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#111;margin-bottom:14px;font-weight:600}
+.sec-card p{color:#666;font-size:13px;line-height:1.8}
 .sec-list{list-style:none;margin-top:16px}
-.sec-list li{color:#444;font-size:12px;padding:8px 0;border-bottom:1px solid #ddd;display:flex;align-items:center;gap:10px}
-.sec-list li::before{content:'✓';color:#c41230;font-size:12px}
+.sec-list li{color:#555;font-size:13px;padding:9px 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.sec-list li:last-child{border-bottom:none}
+.sec-list li::before{content:'✓';color:var(--red);font-size:12px;font-weight:700;margin-top:1px;flex-shrink:0}
 body.rtl .sec-card{direction:rtl;text-align:right}
 body.rtl .sec-card h3{text-align:right}
 body.rtl .sec-list{direction:rtl}
@@ -230,78 +252,137 @@ body.rtl .sec-list li{display:block;direction:rtl;text-align:right;position:rela
 body.rtl .sec-list li::before{position:absolute;right:0;top:10px}
 
 /* CONTACT */
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 body.rtl .contact-wrap{direction:ltr}
 .contact-text h2{text-align:left}
 body.rtl .contact-text h2{text-align:right}
-.contact-text p{color:#333;font-size:14px;line-height:1.9;margin:20px 0 36px}
+.contact-text p{color:#666;font-size:14px;line-height:1.9;margin:20px 0 36px}
 body.rtl .contact-text p{text-align:right}
-.contact-btns{display:flex;flex-direction:column;gap:12px}
-.contact-btn{display:flex;align-items:center;gap:14px;padding:16px 24px;border:1px solid #1e1e1e;color:#333;text-decoration:none;font-size:13px;letter-spacing:1px;transition:all 0.3s}
-.contact-btn:hover{border-color:var(--gold);color:var(--gold)}
-body.rtl .contact-btn{direction:rtl;justify-content:flex-start}
+.contact-btns{display:flex;flex-direction:column;gap:10px}
+.contact-btn{display:flex;align-items:center;gap:14px;padding:16px 22px;border:1px solid #e0e0e0;color:#555;text-decoration:none;font-size:13px;letter-spacing:1px;transition:all 0.25s;font-family:'Montserrat',sans-serif}
+.contact-btn:hover{border-color:var(--gold);color:var(--gold-dark);background:#fdf9f2;transform:translateX(4px)}
+body.rtl .contact-btn{direction:rtl}
+body.rtl .contact-btn:hover{transform:translateX(-4px)}
 body.rtl .contact-btn span{display:block;width:100%;text-align:right}
 body.rtl [data-t="c_call"],body.rtl a[href^="tel"]{direction:ltr;unicode-bidi:embed;text-align:left}
-.contact-info{background:var(--dark);padding:50px 40px;border:1px solid #1e1e1e}
-.info-item{padding:20px 0;border-bottom:1px solid #ddd}
+.contact-info{background:#f8f7f5;padding:44px 40px;border:1px solid #e8e8e8}
+.info-item{padding:20px 0;border-bottom:1px solid #eee}
 .info-item:last-child{border-bottom:none}
-.info-label{font-size:10px;color:#333;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-.info-value{font-family:'Cormorant Garamond',serif;font-size:20px;color:#1a1a1a}
-.info-value a{color:#c41230;text-decoration:none}
+.info-label{font-size:10px;color:#666;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.info-value{font-family:'Cormorant Garamond',serif;font-size:20px;color:#111}
+.info-value a{color:var(--red);text-decoration:none}
 body.rtl .contact-info{direction:rtl;text-align:right}
 body.rtl .info-label,body.rtl .info-value{text-align:right;direction:rtl}
-body.rtl .info-value svg{margin-right:0;margin-left:6px}
 
 /* CTA BANNER */
-.cta-banner{border-top:3px solid #d44060;background:linear-gradient(135deg,#0d0d0d 0%,#111 50%,#0d0d0d 100%);border-top:1px solid #1e1e1e;border-bottom:1px solid #ddd;padding:100px 20px;text-align:center;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none}
-.cta-banner h2{position:relative;color:#ffffff}
-.cta-banner p{color:#ffffff;font-size:14px;letter-spacing:1px;margin:20px 0 50px;position:relative}
+.cta-banner{background:linear-gradient(135deg,#0d0d0d 0%,#131313 50%,#0d0d0d 100%);border-top:3px solid var(--red);padding:110px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,0.07) 0%,transparent 65%);pointer-events:none}
+.cta-banner h2{position:relative;color:#fff}
+.cta-banner p{color:#bbb;font-size:14px;letter-spacing:1px;margin:20px 0 50px;position:relative}
+.cta-banner .section-badge{color:#dfc08a;border-color:rgba(249,115,22,0.4);background:rgba(249,115,22,0.08)}
+.cta-banner h2 em{color:#dfc08a}
 
 /* FOOTER */
-footer{background:#ffffff;border-top:1px solid #e8e8e8;padding:60px 40px;text-align:center}
-.footer.logo{font-family:'Cormorant Garamond',serif;font-size:24px;color:#ffffff;letter-spacing:4px;font-weight:700;margin-bottom:12px}
-.footer.logo span{color:#c41230;font-weight:400}
-.footer-text{color:#444;font-size:12px;line-height:1.8;margin-top:8px}
-.footer-text a{color:#333;text-decoration:none}
+footer{background:#fff;border-top:1px solid var(--border);padding:60px 40px;text-align:center}
+.footer-text{color:#666;font-size:12px;line-height:1.9;margin-top:8px}
+.footer-text a{color:#666;text-decoration:none;transition:color 0.2s}
+.footer-text a:hover{color:var(--red)}
 
 /* WHATSAPP */
-.wa-float{position:fixed;bottom:30px;right:30px;z-index:999;background:#25d366;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.3s}
-body.rtl .wa-float{right:auto;left:30px}
-.wa-float:hover{transform:scale(1.1)}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.3s}
+body.rtl .wa-float{right:auto;left:28px}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5)}
 
-/* LANGUAGE SECTION */
-.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#1a1a1a}
-.lang-card{background:var(--dark);padding:40px 30px;text-align:center}
-.lang-flag{font-size:36px;margin-bottom:16px}
-.lang-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1a1a1a;margin-bottom:10px}
-.lang-card p{color:#333;font-size:13px;line-height:1.7}
+/* CONTENT VISIBILITY - skip rendering off-screen sections on load */
+#services,#gallery,#packages,#process,#security,#contact{content-visibility:auto;contain-intrinsic-size:0 800px}
+#process{background:#fff}
+.section-dark{content-visibility:auto;contain-intrinsic-size:0 700px}
 
-/* RESPONSIVE */
+/* LANG CARDS */
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#e0e0e0}
+.lang-card{background:#fff;padding:44px 30px;text-align:center;transition:background 0.3s}
+.lang-card:hover{background:#fdf9f4}
+.lang-flag{font-size:30px;margin-bottom:16px;color:var(--gold-dark);font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:2px}
+.lang-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:#111;margin-bottom:10px}
+.lang-card p{color:#666;font-size:13px;line-height:1.7}
+
+/* MOBILE NAV */
 @media(max-width:900px){
-  .contact-wrap{grid-template-columns:1fr}
-  nav{padding:14px 20px}
+  #burger{display:flex;order:2}
+  .logo{order:1}
   .nav-links{display:none}
-  .lang-bar{padding:6px 16px}
-  .stat{padding:22px 30px}
-  .section{padding:70px 20px}
-  .hero h1{font-size:42px}
+  nav{padding:13px 20px}
+  .lang-bar{padding:6px 18px}
+  .logo-spin{animation:none}
+  .hero::before{display:none}
 }
+
+/* TABLET */
+@media(max-width:900px){
+  .contact-wrap{grid-template-columns:1fr;gap:40px}
+  .stat{padding:24px 32px}
+  .section{padding:72px 20px}
+  .section-dark{padding:72px 20px}
+  .hero{padding:128px 20px 80px}
+  .hero-sub::before,.hero-sub::after{width:22px}
+  .section-title-wrap{margin-bottom:52px}
+}
+
+/* MOBILE */
 @media(max-width:580px){
-  .process-item{flex-direction:column!important;gap:8px}
-  .process-num{font-size:32px!important;flex:none!important}
-  .btn-primary,.btn-secondary{padding:14px 24px;width:100%;text-align:center;box-sizing:border-box;display:block}
+  .hero{min-height:auto;padding:110px 20px 80px}
+  .process-item{flex-direction:column!important;gap:6px}
+  .process-num{font-size:38px!important;flex:none!important}
+  .btn-primary,.btn-secondary{padding:14px 20px;width:100%;text-align:center;box-sizing:border-box;display:block}
   .hero-btns{flex-direction:column;align-items:stretch;gap:12px}
   .pkg-card{padding:32px 20px}
+  .payments-box{padding:32px 20px}
+  .contact-info{padding:32px 20px}
+  .stat{flex:1 1 46%;border-right:none;border-bottom:1px solid #e8e8e8}
+  .stat:nth-child(odd){border-right:1px solid #e0e0e0}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .why-grid{gap:16px}
+  .why-card{padding:30px 22px}
+  .lang-card{padding:32px 20px}
+  .service-card{padding:36px 24px}
+  .serve-card{padding:32px 24px}
+  footer{padding:44px 20px}
+  .sec-card{padding:32px 20px}
+  .contact-btns{gap:8px}
+  .hero-sub{letter-spacing:2.5px;font-size:10px}
 }
-/* Mobile menu Arabic override — inline style has highest specificity so use !important */
+@media(max-width:400px){
+  .hero h1{font-size:38px}
+  .hero-tag{font-size:10px;letter-spacing:3px;padding:6px 16px}
+  nav{top:34px}
+}
 body.rtl #mobile-menu{direction:rtl;text-align:right}
 body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:0!important;text-transform:none!important;direction:rtl;text-align:right}
-/* CTA banner is near-black: restore lighter gold so contrast passes there too */
-.cta-banner .section-badge{color:#dfc08a}
-.cta-banner h2 em{color:#dfc08a}
+/* COLORFUL PACKAGES - logo colors */
+.packages-grid .pkg-card:nth-child(1){border-top:3px solid #4285F4}
+.packages-grid .pkg-card:nth-child(1) .pkg-price{color:#4285F4}
+.packages-grid .pkg-card:nth-child(1) .pkg-name{color:#4285F4}
+.packages-grid .pkg-card:nth-child(1) .pkg-features li::before{color:#4285F4}
+.packages-grid .pkg-card:nth-child(1) .btn-secondary{color:#4285F4;border-color:#4285F4}
+.packages-grid .pkg-card:nth-child(1) .btn-secondary:hover{background:#4285F4;color:#fff}
+.packages-grid .pkg-card:nth-child(2){border-top:3px solid #EA4335}
+.packages-grid .pkg-card:nth-child(2) .pkg-price{color:#EA4335}
+.packages-grid .pkg-card:nth-child(2) .pkg-features li::before{color:#EA4335}
+.packages-grid .pkg-card:nth-child(3){border-top:3px solid #FBBC05}
+.packages-grid .pkg-card:nth-child(3) .pkg-price{color:#b08500}
+.packages-grid .pkg-card:nth-child(3) .pkg-name{color:#b08500}
+.packages-grid .pkg-card:nth-child(3) .pkg-features li::before{color:#b08500}
+.packages-grid .pkg-card:nth-child(3) .btn-secondary{color:#b08500;border-color:#b08500}
+.packages-grid .pkg-card:nth-child(3) .btn-secondary:hover{background:#FBBC05;color:#1a1a1a}
+.packages-grid .pkg-card:nth-child(4){border-top:3px solid #34A853}
+.packages-grid .pkg-card:nth-child(4) .pkg-price{color:#34A853}
+.packages-grid .pkg-card:nth-child(4) .pkg-name{color:#34A853}
+.packages-grid .pkg-card:nth-child(4) .pkg-features li::before{color:#34A853}
+.packages-grid .pkg-card:nth-child(4) .btn-secondary{color:#34A853;border-color:#34A853}
+.packages-grid .pkg-card:nth-child(4) .btn-secondary:hover{background:#34A853;color:#fff}
 @media(prefers-reduced-motion:reduce){
   .logo-spin{animation:none}
+  *{transition:none!important;animation:none!important}
 }
 </style>
 </head>
@@ -312,15 +393,24 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" aria-pressed="true" onclick="setLang('en',event)">EN</button>
-  <button class="lang-btn" aria-pressed="false" onclick="setLang('nl',event)">NL</button>
-  <button class="lang-btn" aria-pressed="false" onclick="setLang('de',event)">DE</button>
-  <button class="lang-btn" aria-pressed="false" lang="ar" onclick="setLang('ar',event)">عربي</button>
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-toggle" id="langToggle" onclick="toggleLangMenu()" aria-expanded="false" aria-haspopup="listbox">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span id="langLabel">EN</span>
+      <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" role="listbox">
+      <button class="lang-option active" role="option" onclick="selectLang('en')">EN — English</button>
+      <button class="lang-option" role="option" onclick="selectLang('nl')">NL — Nederlands</button>
+      <button class="lang-option" role="option" onclick="selectLang('de')">DE — Deutsch</button>
+      <button class="lang-option" role="option" lang="ar" onclick="selectLang('ar')">عربي — Arabic</button>
+    </div>
+  </div>
 </div>
 
 <!-- NAV -->
 <nav>
-  <button id="burger" onclick="toggleMenu()" aria-label="Toggle navigation menu" style="background:none;border:none;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center"><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span><span style="display:block;width:24px;height:2px;background:#1a1a1a"></span></button><div class="logo"><svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
+  <button id="burger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="logo"><svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></div>
   <div class="nav-links">
     <a href="#services" data-t="nav_services">Services</a>
     <a href="#gallery" data-t="nav_gallery">Gallery</a>
@@ -336,10 +426,11 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-tag" data-t="hero_tag">Professional Web Solutions</div>
-    <h1 data-t="hero_h1">We Build Websites<br><em>That Drive Results</em></h1>
+    <h1 data-t="hero_h1">We <span style="color:#b08500">Build</span> Websites<br><em><span style="color:#4285F4">That</span> <span style="color:#EA4335">Drive</span> <span style="color:#34A853">Results</span></em></h1>
+    <p class="hero-sub" data-t="hero_sub">4 Languages · No Hidden Fees</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary" data-t="hero_btn1" aria-label="Start your project — go to contact section">Start Your Project</a>
-      <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View Packages — hero section">View Packages</a>
+      <a href="#contact" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
+      <a href="#packages" class="btn-secondary" data-t="hero_btn2">View Packages</a>
     </div>
   </div>
 </section>
@@ -396,12 +487,12 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <!-- 3D IMAGE SECTION 1 -->
 <div style="height:3px;background:#d44060;width:100%"></div>
 <div style="width:100%;height:460px;position:relative;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80&fm=webp" alt="Digital technology and cryptocurrency data visualization" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.85)">
+  <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80&fm=webp" srcset="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=600&q=70&fm=webp 600w,https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1200&q=78&fm=webp 1200w,https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80&fm=webp 1600w" sizes="100vw" alt="Digital technology and cryptocurrency data visualization" width="1600" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.85)">
   <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:absolute;top:50%;left:5%;transform:translateY(-50%);max-width:500px;padding:0 20px">
-    <p style="font-size:11px;color:#c8a96e;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-family:'Montserrat',sans-serif">Digital Excellence</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);color:#fff;line-height:1.1;font-weight:700;margin:0">Where Technology<br><em style="color:#c8a96e;font-style:italic">Meets Design</em></h2>
-    <p style="color:#fff;font-size:14px;line-height:1.8;margin-top:20px;font-family:'Montserrat',sans-serif">We craft digital experiences that combine cutting-edge technology with refined aesthetics — built for businesses that refuse to compromise.</p>
+    <p data-t="banner1_label" style="font-size:11px;color:#c8a96e;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-family:'Montserrat',sans-serif">Digital Excellence</p>
+    <h2 data-t="banner1_h2" style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);color:#fff;line-height:1.1;font-weight:700;margin:0">Where Technology<br><em style="color:var(--gold);font-style:italic">Meets Design</em></h2>
+    <p data-t="banner1_desc" style="color:#fff;font-size:14px;line-height:1.8;margin-top:20px;font-family:'Montserrat',sans-serif">We craft digital experiences that combine cutting-edge technology with refined aesthetics — built for businesses that refuse to compromise.</p>
   </div>
 </div>
 
@@ -418,7 +509,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <a href="https://tallarestaurant.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#ffffff;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00 0%,#3d1a00 50%,#1a0a00 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#d4a056;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center">مطعم طلة تلاع العلي</p>
-    <p style="color:#444;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Restaurant <span aria-hidden="true">·</span> Jordan</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Restaurant <span aria-hidden="true">·</span> Jordan</p>
     <div style="margin-top:8px;border:1px solid #d4a056;color:#d4a056;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -427,7 +518,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
     <a href="https://nuevostylo.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#ffffff;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#d4af37;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">NUEVO STYLO</p>
-        <p style="color:#444;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Barbershop <span aria-hidden="true">·</span> Maasmechelen</p>
+        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">Barbershop <span aria-hidden="true">·</span> Maasmechelen</p>
         <div style="margin-top:8px;border:1px solid #d4af37;color:#d4af37;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
       </div>
     </a>
@@ -436,7 +527,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
     <a href="https://sunny-kleicha-313c27.netlify.app" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #e0d0b0;border-radius:4px;background:#ffffff;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
       <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b2a 0%,#1b3a5c 50%,#0d1b2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
         <p style="color:#c8a96e;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:2px">EU Tax Calculator</p>
-        <p style="color:#444;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">European Tax Tool <span aria-hidden="true">·</span> Belgium</p>
+        <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">European Tax Tool <span aria-hidden="true">·</span> Belgium</p>
         <div style="margin-top:8px;border:1px solid #c8a96e;color:#c8a96e;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
       </div>
     </a>
@@ -444,7 +535,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <a href="https://getcvcraft.app" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#ffffff;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CVcraft</p>
-    <p style="color:#444;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">AI CV Builder <span aria-hidden="true">·</span> Global</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">AI CV Builder <span aria-hidden="true">·</span> Global</p>
     <div style="margin-top:8px;border:1px solid #4fc3f7;color:#4fc3f7;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -452,7 +543,7 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <a href="https://converal.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;position:relative;overflow:hidden;border:1px solid #4fc3f7;border-radius:4px;background:#ffffff;transition:transform 0.3s;aspect-ratio:16/9" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px">
     <p style="color:#4fc3f7;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:0;text-align:center;letter-spacing:3px">CONVERAL</p>
-    <p style="color:#444;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">PDF Converter <span aria-hidden="true">·</span> Global</p>
+    <p style="color:#aaa;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin:0">PDF Converter <span aria-hidden="true">·</span> Global</p>
     <div style="margin-top:8px;border:1px solid #4fc3f7;color:#4fc3f7;padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif">Visit Site →</div>
   </div>
 </a>
@@ -593,10 +684,10 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
       <h2 data-t="lang_h2">Available in <em>4 Languages</em></h2>
     </div>
     <div class="lang-grid">
-      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold);font-family:Cormorant Garamond,serif">EN</div><h3>English</h3><p data-t="lang1_desc">Primary market copy, optimized for SEO and conversion.</p></div>
-      <div class="lang-card"><div class="lang-flag" aria-hidden="true"><div class="lang-flag" style="font-size:32px;color:var(--gold);font-family:Cormorant Garamond,serif">عربي</div></div><h3>العربية</h3><p data-t="lang2_desc">دعم كامل للكتابة من اليمين إلى اليسار وتجربة مستخدم راقية.</p></div>
-      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold);font-family:Cormorant Garamond,serif">NL</div><h3>Nederlands</h3><p data-t="lang3_desc">Geoptimaliseerde inhoud voor de Nederlandse markt met lokale nauwkeurigheid.</p></div>
-      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold);font-family:Cormorant Garamond,serif">DE</div><h3>Deutsch</h3><p data-t="lang4_desc">Professionelle Texte für den deutschsprachigen Markt mit kultureller Genauigkeit.</p></div>
+      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold-dark);font-family:Cormorant Garamond,serif">EN</div><h3>English</h3><p data-t="lang1_desc">Primary market copy, optimized for SEO and conversion.</p></div>
+      <div class="lang-card"><div class="lang-flag" aria-hidden="true"><div class="lang-flag" style="font-size:32px;color:var(--gold-dark);font-family:Cormorant Garamond,serif">عربي</div></div><h3>العربية</h3><p data-t="lang2_desc">دعم كامل للكتابة من اليمين إلى اليسار وتجربة مستخدم راقية.</p></div>
+      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold-dark);font-family:Cormorant Garamond,serif">NL</div><h3>Nederlands</h3><p data-t="lang3_desc">Geoptimaliseerde inhoud voor de Nederlandse markt met lokale nauwkeurigheid.</p></div>
+      <div class="lang-card"><div class="lang-flag" aria-hidden="true" style="font-size:32px;color:var(--gold-dark);font-family:Cormorant Garamond,serif">DE</div><h3>Deutsch</h3><p data-t="lang4_desc">Professionelle Texte für den deutschsprachigen Markt mit kultureller Genauigkeit.</p></div>
     </div>
   </div>
 </div>
@@ -775,11 +866,11 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 <!-- 3D IMAGE SECTION 2 -->
 <div style="height:3px;background:#d44060;width:100%"></div>
 <div style="width:100%;height:460px;position:relative;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80&fm=webp" alt="Web developer working on modern code and software development" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.8)">
+  <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80&fm=webp" srcset="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=70&fm=webp 600w,https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&q=78&fm=webp 1200w,https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80&fm=webp 1600w" sizes="100vw" alt="Web developer working on modern code and software development" width="1600" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;opacity:0.75;filter:brightness(0.8)">
   <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:absolute;top:50%;right:5%;transform:translateY(-50%);max-width:500px;padding:0 20px;text-align:right">
     <p style="font-size:11px;color:#c8a96e;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-family:'Montserrat',sans-serif">The Future is Now</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);color:#fff;line-height:1.1;font-weight:700;margin:0">Built for the<br><em style="color:#c8a96e;font-style:italic">Next Generation</em></h2>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);color:#fff;line-height:1.1;font-weight:700;margin:0">Built for the<br><em style="color:var(--gold);font-style:italic">Next Generation</em></h2>
     <p style="color:#fff;font-size:14px;line-height:1.8;margin-top:20px;font-family:'Montserrat',sans-serif">Every website we build is engineered to perform today and scale for tomorrow — with multilingual architecture and enterprise-grade security built in from day one.</p>
   </div>
 </div>
@@ -790,8 +881,8 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   <h2 style="margin-top:20px" data-t="cta_h2">Ready to Build Something <em>Extraordinary?</em></h2>
   <p data-t="cta_p">No templates. No shortcuts. Just exceptional digital work.</p>
   <div class="hero-btns">
-    <a href="#contact" class="btn-primary" data-t="hero_btn1" aria-label="Start your project — go to contact section">Start Your Project</a>
-    <a href="#packages" class="btn-secondary" data-t="hero_btn2" aria-label="View Packages — call to action">View Packages</a>
+    <a href="#contact" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
+    <a href="#packages" class="btn-secondary" data-t="hero_btn2">View Packages</a>
   </div>
 </div>
 </main>
@@ -820,13 +911,49 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
 </footer>
 
 <script>
-/* Stub defined immediately so onclick="setLang(...)" never throws during the
-   brief window before the translation table is idle-loaded after page load. */
 var _langPending = null;
-function setLang(lang, e) {
-  if (window._T && window._T[lang]) { _applyLang(lang, e); } else { _langPending = [lang, e]; }
+var _currentLang = 'en';
+var _langLabels = {en:'EN',nl:'NL',de:'DE',ar:'عربي'};
+
+function toggleLangMenu() {
+  var menu = document.getElementById('langMenu');
+  var toggle = document.getElementById('langToggle');
+  var isOpen = menu.classList.contains('open');
+  if (isOpen) { menu.classList.remove('open'); toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  else { menu.classList.add('open'); toggle.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
 }
-function _applyLang(lang, e) {
+function closeLangMenu() {
+  var menu = document.getElementById('langMenu');
+  var toggle = document.getElementById('langToggle');
+  menu.classList.remove('open'); toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+}
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('langDropdown');
+  if (dd && !dd.contains(e.target)) closeLangMenu();
+});
+function selectLang(lang) {
+  closeLangMenu();
+  document.getElementById('langLabel').textContent = _langLabels[lang] || lang.toUpperCase();
+  document.querySelectorAll('.lang-option').forEach(function(b){ b.classList.remove('active'); });
+  var active = document.querySelector('.lang-option[onclick*="\''+lang+'\'"]');
+  if (active) active.classList.add('active');
+  _currentLang = lang;
+  if (lang === 'ar' && !document.querySelector('link[data-cairo]')) {
+    var cl = document.createElement('link');
+    cl.rel = 'stylesheet';
+    cl.setAttribute('data-cairo', '1');
+    cl.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap';
+    document.head.appendChild(cl);
+  }
+  if (window._T && window._T[lang]) { _applyLang(lang); } else {
+    _langPending = lang;
+    if (window._loadLang) window._loadLang(lang);
+  }
+}
+function setLang(lang, e) {
+  selectLang(lang);
+}
+function _applyLang(lang) {
   var t = window._T[lang];
   var root = document.getElementById('html-root');
   var updates = [];
@@ -835,8 +962,6 @@ function _applyLang(lang, e) {
     if (t[key] !== undefined) updates.push([el, t[key]]);
   });
   requestAnimationFrame(function() {
-    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-    if (e) { e.target.classList.add('active'); e.target.setAttribute('aria-pressed','true'); }
     if (lang === 'ar') {
       document.body.classList.add('rtl');
       root.setAttribute('lang','ar');
@@ -849,18 +974,19 @@ function _applyLang(lang, e) {
     updates.forEach(function(pair) { pair[0].innerHTML = pair[1]; });
   });
 }
-/* Defer the ~25 KB translation table until after load + browser idle so it
-   stays outside the TBT measurement window and does not block interactivity. */
+/* EN loads at idle after window.load; NL/DE/AR load on demand to keep TBT low. */
 window.addEventListener('load', function() {
   var idle = typeof requestIdleCallback !== 'undefined'
     ? requestIdleCallback : function(fn) { setTimeout(fn, 0); };
   window._T = {};
   idle(function() {
     window._T.en = {
-    nav_services:"Services", nav_packages:"Packages", nav_process:"Process",
+    nav_services:"Services", nav_gallery:"Gallery", nav_packages:"Packages", nav_process:"Process",
     nav_security:"Security", nav_contact:"Contact", nav_cta:"Start Project",
+    banner1_label:"Digital Excellence", banner1_h2:"Where Technology<br><em style='color:var(--gold);font-style:italic'>Meets Design</em>", banner1_desc:"We craft digital experiences that combine cutting-edge technology with refined aesthetics — built for businesses that refuse to compromise.",
     hero_tag:"Professional Web Solutions",
-    hero_h1:"We Build Websites<br><em>That Drive Results</em>",
+    hero_h1:"We <span style='color:#b08500'>Build</span> Websites<br><em><span style='color:#4285F4'>That</span> <span style='color:#EA4335'>Drive</span> <span style='color:#34A853'>Results</span></em>",
+    hero_sub:"4 Languages · No Hidden Fees",
     hero_btn1:"Start Your Project", hero_btn2:"View Packages",
     stat1:"Projects Complete", stat2:"Happy Clients", stat3:"Success Rate", stat4:"Support",
     badge_services:"Core Services",
@@ -954,14 +1080,20 @@ window.addEventListener('load', function() {
     cta_p:"No templates. No shortcuts. Just exceptional digital work.",
     footer_tag:"Where Code Meets Craft"
   };
-  if(_langPending&&_langPending[0]==='en'){_applyLang('en',_langPending[1]);_langPending=null;}
+  if(_langPending==='en'){_applyLang('en');_langPending=null;}
   });
-  idle(function() {
+  window._loadLang = function(lang) {
+    var ric = typeof requestIdleCallback !== 'undefined'
+      ? requestIdleCallback : function(fn) { setTimeout(fn, 200); };
+    if (lang === 'nl' && !window._T.nl) {
+      ric(function() {
     window._T.nl = {
-    nav_services:"Diensten", nav_packages:"Pakketten", nav_process:"Werkwijze",
+    nav_services:"Diensten", nav_gallery:"Galerij", nav_packages:"Pakketten", nav_process:"Werkwijze",
     nav_security:"Beveiliging", nav_contact:"Contact", nav_cta:"Project Starten",
+    banner1_label:"Digitale Uitmuntendheid", banner1_h2:"Waar Technologie<br><em style='color:var(--gold);font-style:italic'>Design Ontmoet</em>", banner1_desc:"Wij creëren digitale ervaringen die geavanceerde technologie combineren met verfijnde esthetiek — gebouwd voor bedrijven die geen compromissen willen sluiten.",
     hero_tag:"Professionele Weboplossingen",
-    hero_h1:"Wij Bouwen Websites<br><em>Die Resultaten Opleveren</em>",
+    hero_h1:"Wij <span style='color:#b08500'>Bouwen</span> Websites<br><em><span style='color:#4285F4'>Die</span> <span style='color:#34A853'>Resultaten</span> <span style='color:#EA4335'>Opleveren</span></em>",
+    hero_sub:"4 Talen · Geen Verborgen Kosten",
     hero_btn1:"Project Starten", hero_btn2:"Pakketten Bekijken",
     stat1:"Voltooide Projecten", stat2:"Tevreden Klanten", stat3:"Slagingspercentage", stat4:"Support",
     badge_services:"Onze Diensten",
@@ -1055,14 +1187,17 @@ window.addEventListener('load', function() {
     cta_p:"Geen sjablonen. Geen snelkoppelingen. Alleen uitzonderlijk digitaal werk.",
     footer_tag:"Where Code Meets Craft"
   };
-  if(_langPending&&_langPending[0]==='nl'){_applyLang('nl',_langPending[1]);_langPending=null;}
-  });
-  idle(function() {
+      if(_langPending==='nl'){_applyLang('nl');_langPending=null;}
+      });
+    } else if (lang === 'de' && !window._T.de) {
+      ric(function() {
     window._T.de = {
-    nav_services:"Leistungen", nav_packages:"Pakete", nav_process:"Prozess",
+    nav_services:"Leistungen", nav_gallery:"Galerie", nav_packages:"Pakete", nav_process:"Prozess",
     nav_security:"Sicherheit", nav_contact:"Kontakt", nav_cta:"Projekt Starten",
+    banner1_label:"Digitale Exzellenz", banner1_h2:"Wo Technologie<br><em style='color:var(--gold);font-style:italic'>Design Trifft</em>", banner1_desc:"Wir gestalten digitale Erlebnisse, die modernste Technologie mit raffinierter Ästhetik verbinden — für Unternehmen, die keine Kompromisse eingehen.",
     hero_tag:"Professionelle Weblösungen",
-    hero_h1:"Wir Erstellen Websites<br><em>Die Ergebnisse Liefern</em>",
+    hero_h1:"Wir <span style='color:#b08500'>Erstellen</span> Websites<br><em><span style='color:#4285F4'>Die</span> <span style='color:#34A853'>Ergebnisse</span> <span style='color:#EA4335'>Liefern</span></em>",
+    hero_sub:"4 Sprachen · Keine Versteckten Kosten",
     hero_btn1:"Projekt Starten", hero_btn2:"Pakete Ansehen",
     stat1:"Abgeschlossene Projekte", stat2:"Zufriedene Kunden", stat3:"Erfolgsquote", stat4:"Support",
     badge_services:"Unsere Leistungen",
@@ -1150,14 +1285,17 @@ window.addEventListener('load', function() {
     cta_p:"Keine Vorlagen. Keine Abkürzungen. Nur außergewöhnliche digitale Arbeit.",
     footer_tag:"Where Code Meets Craft"
   };
-  if(_langPending&&_langPending[0]==='de'){_applyLang('de',_langPending[1]);_langPending=null;}
-  });
-  idle(function() {
+      if(_langPending==='de'){_applyLang('de');_langPending=null;}
+      });
+    } else if (lang === 'ar' && !window._T.ar) {
+      ric(function() {
     window._T.ar = {
-    nav_services:"الخدمات", nav_packages:"الباقات", nav_process:"منهجيتنا",
+    nav_services:"الخدمات", nav_gallery:"معرض الأعمال", nav_packages:"الباقات", nav_process:"منهجيتنا",
     nav_security:"الأمان", nav_contact:"تواصل معنا", nav_cta:"ابدأ مشروعك",
+    banner1_label:"التميز الرقمي", banner1_h2:"حيث تلتقي التقنية<br><em style='color:var(--gold);font-style:italic'>بالتصميم</em>", banner1_desc:"نصنع تجارب رقمية تجمع بين أحدث التقنيات والجماليات الراقية — مبنية للشركات التي ترفض المساومة.",
     hero_tag:"حلول ويب احترافية",
-    hero_h1:"نبني مواقع إلكترونية<br><em>تحقق نتائج حقيقية</em>",
+    hero_h1:"<span style='color:#b08500'>نبني</span> مواقع إلكترونية<br><em><span style='color:#EA4335'>تحقق</span> <span style='color:#34A853'>نتائج</span> حقيقية</em>",
+    hero_sub:"٤ لغات · بدون رسوم خفية",
     hero_btn1:"ابدأ مشروعك", hero_btn2:"عرض الباقات",
     stat1:"مشاريع مكتملة", stat2:"عملاء راضون", stat3:"معدل النجاح", stat4:"دعم",
     badge_services:"خدماتنا الأساسية",
@@ -1249,9 +1387,24 @@ window.addEventListener('load', function() {
     cta_p:"لا قوالب. لا اختصارات. فقط عمل رقمي استثنائي.",
     footer_tag:"Where Code Meets Craft"
   };
-  if(_langPending&&_langPending[0]==='ar'){_applyLang('ar',_langPending[1]);_langPending=null;}
-  });
+      if(_langPending==='ar'){_applyLang('ar');_langPending=null;}
+      });
+    }
+  };
 });
 </script>
-<div id="mobile-menu" style="display:none;position:fixed;top:99px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" data-t="nav_services" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" data-t="nav_packages" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" data-t="nav_process" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" data-t="nav_security" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" data-t="nav_contact" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" data-t="nav_cta" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>var _mOpen=false;function toggleMenu(){_mOpen=!_mOpen;document.getElementById("mobile-menu").style.display=_mOpen?"block":"none";}</script></body>
+<div id="mobile-menu" style="display:none;position:fixed;top:99px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" data-t="nav_services" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#gallery" onclick="toggleMenu()" data-t="nav_gallery" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Gallery</a><a href="#packages" onclick="toggleMenu()" data-t="nav_packages" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" data-t="nav_process" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" data-t="nav_security" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" data-t="nav_contact" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" data-t="nav_cta" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>
+var _mOpen=false;
+function toggleMenu(){
+  _mOpen=!_mOpen;
+  var m=document.getElementById("mobile-menu");
+  var b=document.getElementById("burger");
+  m.style.display=_mOpen?"block":"none";
+  b.classList.toggle("open",_mOpen);
+  b.setAttribute("aria-expanded",_mOpen?"true":"false");
+}
+window.addEventListener('scroll',function(){
+  document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10);
+},{ passive:true });
+</script></body>
 </html>
