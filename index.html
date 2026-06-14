@@ -134,13 +134,15 @@ body.rtl .serve-card:hover{border-right-color:var(--gold)}
 .serve-card p{color:#333;font-size:13px;line-height:1.8}
 
 /* PROCESS */
-.process-list{display:flex;flex-direction:column;gap:0;max-width:700px;margin:0 auto}
+.process-list{display:flex;flex-direction:column;gap:0;max-width:900px;margin:0 auto}
 .process-item{display:flex;gap:30px;align-items:flex-start;padding:40px 0;border-bottom:1px solid #ddd}
 .process-item:last-child{border-bottom:none}
 body.rtl .process-item{flex-direction:row-reverse}
-.process-num{font-family:'Cormorant Garamond',serif;font-size:60px;color:rgba(201,168,76,0.15);font-weight:700;line-height:1;min-width:70px;text-align:center}
+.process-num{font-family:'Cormorant Garamond',serif;font-size:60px;color:rgba(201,168,76,0.15);font-weight:700;line-height:1;flex:0 0 70px;text-align:center}
 .process-content{flex:1;min-width:0}
-.process-content h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#1a1a1a;margin-bottom:12px}
+body.rtl .process-content{text-align:right;direction:rtl}
+body.rtl .process-content h3,body.rtl .process-content p{text-align:right}
+.process-content h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#111;margin-bottom:12px}
 .process-content p{color:#111;font-size:13px;line-height:1.8}
 
 /* WHY */
@@ -238,6 +240,10 @@ body.rtl .wa-float{right:auto;left:30px}
   .stat{padding:22px 30px}
   .section{padding:70px 20px}
   .hero h1{font-size:42px}
+}
+@media(max-width:580px){
+  .process-item{flex-direction:column!important;gap:8px}
+  .process-num{font-size:32px!important;flex:none!important}
 }
 /* CTA banner is near-black: restore lighter gold so contrast passes there too */
 .cta-banner .section-badge{color:#dfc08a}
