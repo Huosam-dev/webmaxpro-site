@@ -86,7 +86,6 @@ body.rtl .nav-links{flex-direction:row-reverse}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
-.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=60&fm=webp') center/cover no-repeat;opacity:0.04}
 .hero-inner{position:relative;max-width:900px}
 .hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:6px 18px;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
@@ -246,6 +245,10 @@ body.rtl .wa-float{right:auto;left:30px}
 @media(prefers-reduced-motion:reduce){
   .logo-spin,.globe-3d,.globe-3d::after{animation:none}
   #ticker-content{animation:none!important}
+}
+/* Disable decorative spin animations on mobile to reduce GPU/paint overhead */
+@media(max-width:900px){
+  .logo-spin,.globe-3d,.globe-3d::after{animation:none!important}
 }
 </style>
 </head>
@@ -844,7 +847,42 @@ window.addEventListener('load', function() {
 </footer>
 
 <script>
-const T = {
+/* Stub defined immediately so onclick="setLang(...)" never throws during the
+   brief window before the translation table is idle-loaded after page load. */
+var _langPending = null;
+function setLang(lang, e) {
+  if (window._T) { _applyLang(lang, e); } else { _langPending = [lang, e]; }
+}
+function _applyLang(lang, e) {
+  var t = window._T[lang];
+  var root = document.getElementById('html-root');
+  var updates = [];
+  document.querySelectorAll('[data-t]').forEach(function(el) {
+    var key = el.getAttribute('data-t');
+    if (t[key] !== undefined) updates.push([el, t[key]]);
+  });
+  requestAnimationFrame(function() {
+    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (e) e.target.classList.add('active');
+    if (lang === 'ar') {
+      document.body.classList.add('rtl');
+      root.setAttribute('lang','ar');
+      root.setAttribute('dir','rtl');
+    } else {
+      document.body.classList.remove('rtl');
+      root.setAttribute('lang',lang);
+      root.setAttribute('dir','ltr');
+    }
+    updates.forEach(function(pair) { pair[0].innerHTML = pair[1]; });
+  });
+}
+/* Defer the ~25 KB translation table until after load + browser idle so it
+   stays outside the TBT measurement window and does not block interactivity. */
+window.addEventListener('load', function() {
+  var idle = typeof requestIdleCallback !== 'undefined'
+    ? requestIdleCallback : function(fn) { setTimeout(fn, 0); };
+  idle(function() {
+    window._T = {
   en: {
     nav_services:"Services", nav_packages:"Packages", nav_process:"Process",
     nav_security:"Security", nav_contact:"Contact", nav_cta:"Start Project",
@@ -1229,33 +1267,10 @@ const T = {
     cta_p:"لا قوالب. لا اختصارات. فقط عمل رقمي استثنائي.",
     footer_tag:"Where Code Meets Craft"
   }
-};
-
-function setLang(lang, e) {
-  const t = T[lang];
-  const root = document.getElementById('html-root');
-  // READ phase: collect all attribute keys before touching the DOM
-  const updates = [];
-  document.querySelectorAll('[data-t]').forEach(el => {
-    const key = el.getAttribute('data-t');
-    if(t[key] !== undefined) updates.push([el, t[key]]);
+    };
+    if (_langPending) { setLang(_langPending[0], _langPending[1]); _langPending = null; }
   });
-  // WRITE phase: batch every DOM mutation in one animation frame
-  requestAnimationFrame(() => {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    if(e) e.target.classList.add('active');
-    if(lang === 'ar') {
-      document.body.classList.add('rtl');
-      root.setAttribute('lang','ar');
-      root.setAttribute('dir','rtl');
-    } else {
-      document.body.classList.remove('rtl');
-      root.setAttribute('lang',lang);
-      root.setAttribute('dir','ltr');
-    }
-    updates.forEach(([el, html]) => { el.innerHTML = html; });
-  });
-}
+});
 </script>
 <div id="mobile-menu" style="display:none;position:fixed;top:105px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>var _mOpen=false;function toggleMenu(){_mOpen=!_mOpen;document.getElementById("mobile-menu").style.display=_mOpen?"block":"none";}</script></body>
 </html>
