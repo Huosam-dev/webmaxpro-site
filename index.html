@@ -47,8 +47,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
-<link rel="preconnect" href="https://api.exchangerate-api.com">
-<link rel="preconnect" href="https://api.coingecko.com">
 <style>
 :root {
   --gold: #c8a96e;
@@ -311,18 +309,27 @@ async function loadTicker(){
       <span class="ticker-item"><span class="ticker-label">EUR/TRY</span>${try_}</span>
       <span class="ticker-item"><span class="ticker-label">EUR/JOD</span>${jod}</span>
     `;
-    // Inject data then start scroll animation — skeleton stays static until this point
+    // Inject data then start scroll animation — double rAF lets the browser
+    // complete layout from the innerHTML write before the animation reads the
+    // element width to resolve translateX(-50%), avoiding forced reflow.
     el.innerHTML = items + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + items;
-    requestAnimationFrame(() => { el.style.animation = 'ticker 40s linear infinite'; });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { el.style.animation = 'ticker 40s linear infinite'; });
+    });
   } catch(e) {
     el.innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable</span>';
     el.style.animation = 'none';
   }
 }
-// Wait for page load, then wait for browser idle before firing any API calls
+// Wait for page load, then idle-defer API calls so they never appear in the
+// critical request chain. The 3-second fallback keeps the ticker completely
+// out of the initial-paint measurement window on browsers without rIC.
 window.addEventListener('load', function() {
-  var defer = typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : function(fn){ setTimeout(fn, 200); };
-  defer(function(){ loadTicker(); setInterval(loadTicker, 60000); });
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(function() { loadTicker(); setInterval(loadTicker, 60000); });
+  } else {
+    setTimeout(function() { loadTicker(); setInterval(loadTicker, 60000); }, 3000);
+  }
 });
 </script>
 
