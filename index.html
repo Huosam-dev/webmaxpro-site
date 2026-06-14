@@ -203,16 +203,21 @@ body.rtl .sec-list li::before{position:absolute;right:0;top:10px}
 .contact-text h2{text-align:left}
 body.rtl .contact-text h2{text-align:right}
 .contact-text p{color:#333;font-size:14px;line-height:1.9;margin:20px 0 36px}
+body.rtl .contact-text p{text-align:right}
 .contact-btns{display:flex;flex-direction:column;gap:12px}
 .contact-btn{display:flex;align-items:center;gap:14px;padding:16px 24px;border:1px solid #1e1e1e;color:#333;text-decoration:none;font-size:13px;letter-spacing:1px;transition:all 0.3s}
 .contact-btn:hover{border-color:var(--gold);color:var(--gold)}
-body.rtl .contact-btn{flex-direction:row-reverse}
+body.rtl .contact-btn{direction:rtl;justify-content:flex-start}
+body.rtl .contact-btn span{display:block;width:100%;text-align:right}
 .contact-info{background:var(--dark);padding:50px 40px;border:1px solid #1e1e1e}
 .info-item{padding:20px 0;border-bottom:1px solid #ddd}
 .info-item:last-child{border-bottom:none}
 .info-label{font-size:10px;color:#333;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
 .info-value{font-family:'Cormorant Garamond',serif;font-size:20px;color:#1a1a1a}
 .info-value a{color:#c41230;text-decoration:none}
+body.rtl .contact-info{direction:rtl;text-align:right}
+body.rtl .info-label,body.rtl .info-value{text-align:right;direction:rtl}
+body.rtl .info-value svg{margin-right:0;margin-left:6px}
 
 /* CTA BANNER */
 .cta-banner{border-top:3px solid #d44060;background:linear-gradient(135deg,#0d0d0d 0%,#111 50%,#0d0d0d 100%);border-top:1px solid #1e1e1e;border-bottom:1px solid #ddd;padding:100px 20px;text-align:center;position:relative;overflow:hidden}
