@@ -64,12 +64,12 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:#1a1a1a;o
 body.rtl{direction:rtl;text-align:right}
 
 /* LANG BAR */
-.lang-bar{position:fixed;top:34px;width:100%;z-index:200;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;padding:8px 40px;gap:6px}
+.lang-bar{position:fixed;top:0;width:100%;z-index:200;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;padding:8px 40px;gap:6px}
 .lang-btn{background:none;border:1px solid #333;color:#333;padding:5px 14px;font-size:11px;cursor:pointer;letter-spacing:2px;font-family:'Montserrat',sans-serif;transition:all 0.3s;text-transform:uppercase}
 .lang-btn:hover,.lang-btn.active{border-color:#c41230;color:#c41230}
 
 /* NAV */
-nav{position:fixed;top:71px;width:100%;z-index:100;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:space-between;align-items:center;padding:18px 40px}
+nav{position:fixed;top:37px;width:100%;z-index:100;background:rgba(255,255,255,0.98);border-bottom:1px solid #e8e8e8;display:flex;justify-content:space-between;align-items:center;padding:18px 40px}
 .logo{font-family:'Cormorant Garamond',serif;font-size:24px;color:#1a1a1a;letter-spacing:4px;font-weight:700;display:flex;align-items:center}
 .logo span{color:#c41230;font-weight:400}
  @keyframes spin-logo{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
@@ -85,7 +85,7 @@ nav{position:fixed;top:71px;width:100%;z-index:100;background:rgba(255,255,255,0
 body.rtl .nav-links{flex-direction:row-reverse}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:126px 20px 80px;position:relative;background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%), var(--black)}
 .hero-inner{position:relative;max-width:900px}
 .hero-tag{display:inline-block;border:1px solid #c41230;color:#1a1a1a;background:#ffffff;padding:6px 18px;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);line-height:1.05;color:#1a1a1a;margin-bottom:12px;font-weight:700}
@@ -244,7 +244,6 @@ body.rtl .wa-float{right:auto;left:30px}
 /* Stop all infinite animations for users who prefer reduced motion */
 @media(prefers-reduced-motion:reduce){
   .logo-spin,.globe-3d,.globe-3d::after{animation:none}
-  #ticker-content{animation:none!important}
 }
 /* Disable decorative spin animations on mobile to reduce GPU/paint overhead */
 @media(max-width:900px){
@@ -256,93 +255,6 @@ body.rtl .wa-float{right:auto;left:30px}
 
 <a href="https://wa.me/32495345140" class="wa-float" target="_blank" aria-label="Chat with us on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="24" fill="#25d366"/><path d="M24 8C15.16 8 8 15.16 8 24c0 2.84.74 5.5 2.04 7.82L8 40l8.38-2.02A15.93 15.93 0 0024 40c8.84 0 16-7.16 16-16S32.84 8 24 8zm0 29.2a13.1 13.1 0 01-6.68-1.83l-.48-.28-4.96 1.3 1.32-4.84-.31-.5A13.1 13.1 0 0110.8 24C10.8 16.7 16.7 10.8 24 10.8S37.2 16.7 37.2 24 31.3 37.2 24 37.2zm7.18-9.8c-.4-.2-2.34-1.16-2.7-1.29-.36-.13-.62-.2-.88.2-.26.4-1.02 1.29-1.25 1.55-.23.27-.46.3-.86.1-.4-.2-1.68-.62-3.2-1.98-1.18-1.05-1.98-2.35-2.21-2.75-.23-.4-.02-.61.17-.81.18-.18.4-.46.6-.7.2-.23.26-.4.4-.66.13-.26.06-.5-.03-.7-.1-.2-.88-2.14-1.21-2.93-.32-.77-.64-.67-.88-.68l-.75-.01c-.26 0-.69.1-1.05.5-.36.4-1.38 1.35-1.38 3.29s1.41 3.82 1.61 4.08c.2.27 2.78 4.25 6.74 5.96.94.41 1.68.65 2.25.83.95.3 1.81.26 2.49.16.76-.11 2.34-.96 2.67-1.88.33-.92.33-1.71.23-1.88-.1-.16-.36-.26-.76-.46z" fill="#fff"/></svg></a>
 
-<!-- TICKER -->
-<div id="ticker-bar" style="background:#1a1a1a;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;padding:5px 0;overflow:hidden;white-space:nowrap;border-bottom:1px solid #333;position:fixed;top:0;width:100%;z-index:300">
-  <div id="ticker-content" style="display:inline-block">
-    <span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span><span class="ticker-skel"></span>
-  </div>
-</div>
-<style>
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-item{margin:0 30px;display:inline-block}
-.ticker-up{color:#2ecc71}
-.ticker-down{color:#e74c3c}
-.ticker-label{color:#c8a96e;margin-right:6px;font-weight:600}
-.ticker-skel{display:inline-block;width:100px;height:8px;background:rgba(255,255,255,0.15);border-radius:3px;vertical-align:middle;margin:0 24px;animation:skel-pulse 1.4s ease-in-out infinite}
-@keyframes skel-pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
-</style>
-<script>
-async function loadTicker(){
-  const el = document.getElementById('ticker-content');
-  try {
-    // Both APIs fetched in parallel — no sequential chain
-    const [fxRes, cryptoRes] = await Promise.all([
-      fetch('https://api.exchangerate-api.com/v4/latest/EUR'),
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin&vs_currencies=usd&include_24hr_change=true')
-    ]);
-    const [fxData, cryptoData] = await Promise.all([fxRes.json(), cryptoRes.json()]);
-
-    const rates = fxData.rates;
-    const usd = rates.USD?.toFixed(4) || '1.08';
-    const gbp = rates.GBP?.toFixed(4) || '0.86';
-    const sar = rates.SAR?.toFixed(4) || '4.05';
-    const aed = rates.AED?.toFixed(4) || '3.97';
-    const try_ = rates.TRY?.toFixed(2) || '34.5';
-    const jod = rates.JOD?.toFixed(4) || '0.77';
-
-    const btc = cryptoData.bitcoin?.usd?.toLocaleString() || '67,000';
-    const btcChg = cryptoData.bitcoin?.usd_24h_change?.toFixed(2) || '0';
-    const eth = cryptoData.ethereum?.usd?.toLocaleString() || '3,500';
-    const ethChg = cryptoData.ethereum?.usd_24h_change?.toFixed(2) || '0';
-    const bnb = cryptoData.binancecoin?.usd?.toFixed(0) || '580';
-
-    const btcClass = btcChg >= 0 ? 'ticker-up' : 'ticker-down';
-    const ethClass = ethChg >= 0 ? 'ticker-up' : 'ticker-down';
-    const btcArrow = btcChg >= 0 ? '▲' : '▼';
-    const ethArrow = ethChg >= 0 ? '▲' : '▼';
-
-    const items = `
-      <span class="ticker-item"><span class="ticker-label">BTC/USD</span><span class="${btcClass}">${btcArrow} $${btc} (${btcChg}%)</span></span>
-      <span class="ticker-item"><span class="ticker-label">ETH/USD</span><span class="${ethClass}">${ethArrow} $${eth} (${ethChg}%)</span></span>
-      <span class="ticker-item"><span class="ticker-label">BNB/USD</span>$${bnb}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/USD</span>${usd}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/GBP</span>${gbp}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/SAR</span>${sar}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/AED</span>${aed}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/TRY</span>${try_}</span>
-      <span class="ticker-item"><span class="ticker-label">EUR/JOD</span>${jod}</span>
-    `;
-    // Inject data then start scroll animation — double rAF lets the browser
-    // complete layout from the innerHTML write before the animation reads the
-    // element width to resolve translateX(-50%), avoiding forced reflow.
-    el.innerHTML = items + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + items;
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => { el.style.animation = 'ticker 40s linear infinite'; });
-    });
-  } catch(e) {
-    el.innerHTML = '<span style="color:#888;margin:0 20px">Live rates unavailable</span>';
-    el.style.animation = 'none';
-  }
-}
-// Interaction-first loading: fire on the first scroll/tap so real visitors get
-// live data immediately. The 5 s setTimeout fallback guarantees that in
-// Lighthouse's synthetic run (no gestures), the API calls land ~8-10 s after
-// navigation start — past the TBT measurement window — so they never appear
-// as critical-path blockers.
-window.addEventListener('load', function() {
-  var _started = false;
-  function _startTicker() {
-    if (_started) return;
-    _started = true;
-    loadTicker();
-    setInterval(loadTicker, 60000);
-  }
-  ['scroll', 'pointerdown', 'touchstart'].forEach(function(e) {
-    window.addEventListener(e, _startTicker, { once: true, passive: true });
-  });
-  setTimeout(_startTicker, 5000);
-});
-</script>
 
 <!-- LANG BAR -->
 <div class="lang-bar">
@@ -1280,5 +1192,5 @@ window.addEventListener('load', function() {
   });
 });
 </script>
-<div id="mobile-menu" style="display:none;position:fixed;top:105px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>var _mOpen=false;function toggleMenu(){_mOpen=!_mOpen;document.getElementById("mobile-menu").style.display=_mOpen?"block":"none";}</script></body>
+<div id="mobile-menu" style="display:none;position:fixed;top:71px;left:0;width:100%;background:#fff;border-top:3px solid #d44060;z-index:99;padding:20px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"><a href="#services" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Services</a><a href="#packages" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Packages</a><a href="#process" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Process</a><a href="#security" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Security</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;border-bottom:1px solid #eee;color:#1a1a1a;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:Montserrat,sans-serif">Contact</a><a href="#contact" onclick="toggleMenu()" style="display:block;padding:14px 0;color:#c41230;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;font-family:Montserrat,sans-serif">Start Project →</a></div><script>var _mOpen=false;function toggleMenu(){_mOpen=!_mOpen;document.getElementById("mobile-menu").style.display=_mOpen?"block":"none";}</script></body>
 </html>
