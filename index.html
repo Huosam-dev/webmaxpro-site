@@ -195,7 +195,8 @@ body.rtl .pkg-features li::before{content:'—'}
 body.rtl .sec-card{direction:rtl;text-align:right}
 body.rtl .sec-card h3{text-align:right}
 body.rtl .sec-list{direction:rtl}
-body.rtl .sec-list li{direction:rtl;text-align:right;justify-content:flex-end}
+body.rtl .sec-list li{display:block;direction:rtl;text-align:right;position:relative;padding-right:22px;padding-left:0}
+body.rtl .sec-list li::before{position:absolute;right:0;top:10px}
 
 /* CONTACT */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
