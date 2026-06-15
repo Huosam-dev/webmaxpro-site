@@ -389,6 +389,23 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   .logo-spin{animation:none}
   *{transition:none!important;animation:none!important}
 }
+/* ABOUT */
+.about-lead{font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(255,255,255,0.65);line-height:1.95;letter-spacing:0.4px;max-width:680px;margin:0 auto 16px}
+.about-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:680px;margin:40px auto 0}
+.about-fact{border:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:center}
+.about-fact-num{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--red);line-height:1}
+.about-fact-label{font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:2.5px;text-transform:uppercase;margin-top:10px}
+/* FAQ */
+.faq-list{max-width:760px;margin:0 auto}
+details.faq-item{border-bottom:1px solid #e8e8e8}
+details.faq-item summary{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#111;padding:22px 44px 22px 0;cursor:pointer;position:relative;list-style:none;user-select:none}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:22px;color:var(--red);font-weight:300;line-height:1}
+details.faq-item[open] summary::after{content:'−'}
+.faq-answer{font-family:'Montserrat',sans-serif;font-size:12px;color:#555;line-height:1.9;letter-spacing:0.4px;padding-bottom:22px;padding-right:44px;max-width:680px}
+body.rtl details.faq-item summary{padding-left:44px;padding-right:0;text-align:right}
+body.rtl details.faq-item summary::after{right:auto;left:0}
+body.rtl .faq-answer{padding-right:0;padding-left:44px;text-align:right}
 /* TESTIMONIALS */
 .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .testi-card{background:#fff;border:1px solid #e8e8e8;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.3s;position:relative}
@@ -812,6 +829,32 @@ body.rtl .testi-name,body.rtl .testi-role{text-align:right}
   </div>
 </div>
 
+<!-- ABOUT -->
+<div class="section-dark" id="about">
+  <div class="section">
+    <div class="section-title-wrap">
+      <div class="section-badge" data-t="badge_about">About Us</div>
+      <h2 data-t="about_h2">The Studio Behind <em>WebMaxPro</em></h2>
+    </div>
+    <p class="about-lead" data-t="about_p1">WebMaxPro is a Belgium-based digital studio dedicated to building websites that perform — not just websites that look good. We combine meticulous code, refined design, and multilingual expertise to deliver experiences that convert visitors into clients.</p>
+    <p class="about-lead" data-t="about_p2">From a restaurant in Amman to an e-commerce brand in Frankfurt, we have built for clients across four continents. Every project is hand-coded from scratch — no templates, no page builders, no compromises.</p>
+    <div class="about-facts">
+      <div class="about-fact">
+        <div class="about-fact-num">100%</div>
+        <div class="about-fact-label" data-t="about_f1">Custom Code</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-num">4</div>
+        <div class="about-fact-label" data-t="about_f2">Languages</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-num">24/7</div>
+        <div class="about-fact-label" data-t="about_f3">Support</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PAYMENTS -->
 <div class="section">
   <div class="section-title-wrap">
@@ -879,6 +922,40 @@ body.rtl .testi-name,body.rtl .testi-role{text-align:right}
       </div>
     </div>
     <p style="text-align:center;color:#333;font-size:12px;margin-top:40px;letter-spacing:1px" data-t="gdpr_note">WebMaxPro complies with GDPR, Belgian data protection law, and international cybersecurity standards. Last updated: May 2026</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section" id="faq">
+  <div class="section-title-wrap">
+    <div class="section-badge" data-t="badge_faq">FAQ</div>
+    <h2 data-t="faq_h2">Frequently Asked <em>Questions</em></h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary data-t="faq_q1">How long does it take to build a website?</summary>
+      <p class="faq-answer" data-t="faq_a1">Delivery starts from 2 business days for our Starter package, up to 7 days for Premium. Enterprise projects are scoped individually. You receive a confirmed timeline at the start of every project.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-t="faq_q2">What's included in the package price?</summary>
+      <p class="faq-answer" data-t="faq_a2">Every package includes design, development, mobile responsiveness, SEO setup, a contact form, and fast customer support. No hidden fees — the price you see is the price you pay, tax included.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-t="faq_q3">Can I request changes after delivery?</summary>
+      <p class="faq-answer" data-t="faq_a3">Yes. Each package includes a set number of revision rounds. After delivery, ongoing changes can be handled through our support plans or quoted separately.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-t="faq_q4">Will my website work on mobile and tablet?</summary>
+      <p class="faq-answer" data-t="faq_a4">Every site we build is fully responsive — tested on phones, tablets, and desktops across Chrome, Safari, Firefox, and Edge.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-t="faq_q5">Do you work with clients outside Belgium?</summary>
+      <p class="faq-answer" data-t="faq_a5">Absolutely. We work with clients worldwide. All project communication is handled remotely via WhatsApp, email, and video calls.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-t="faq_q6">Can I manage my own content after launch?</summary>
+      <p class="faq-answer" data-t="faq_a6">We build in CMS options for clients who want self-editing capability. If you'd prefer us to handle updates, our support plans cover that too.</p>
+    </details>
   </div>
 </div>
 
