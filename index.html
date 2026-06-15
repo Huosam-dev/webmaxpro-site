@@ -463,10 +463,19 @@ body.rtl .back-to-top{left:auto;right:28px}
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.fade-in,.fade-in.visible{opacity:1;transform:none;transition:none}}
-/* PSI BADGE */
-.psi-badge{display:inline-flex;align-items:center;gap:7px;margin-top:18px;padding:7px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:20px;color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
-.psi-badge:hover{background:rgba(255,255,255,0.16)}
-.psi-badge-dot{width:8px;height:8px;background:#34A853;border-radius:50%;flex-shrink:0}
+/* PSI STRIP */
+.psi-strip{display:flex;align-items:center;justify-content:center;gap:20px;background:#111;padding:16px 24px;cursor:pointer;transition:background 0.2s;flex-wrap:wrap;border:none;width:100%}
+.psi-strip:hover{background:#1a1a1a}
+.psi-strip-pulse{position:relative;width:12px;height:12px;flex-shrink:0}
+.psi-strip-pulse::before{content:'';position:absolute;inset:0;background:#34A853;border-radius:50%}
+.psi-strip-pulse::after{content:'';position:absolute;inset:-4px;background:#34A853;border-radius:50%;opacity:0.4;animation:psi-pulse 1.6s ease-out infinite}
+@keyframes psi-pulse{0%{transform:scale(1);opacity:0.4}100%{transform:scale(2.2);opacity:0}}
+.psi-strip-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#aaa}
+.psi-strip-scores{display:flex;gap:10px;align-items:center}
+.psi-strip-score{width:36px;height:36px;border-radius:50%;border:2px solid #34A853;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#34A853}
+.psi-strip-cta{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:6px}
+.psi-strip-arrow{display:inline-block;animation:psi-arrow 1s ease-in-out infinite alternate}
+@keyframes psi-arrow{from{transform:translateX(0)}to{transform:translateX(5px)}}
 /* PSI MODAL */
 .psi-modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:10001;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
 .psi-modal.open{opacity:1;pointer-events:auto}
@@ -574,12 +583,6 @@ body.rtl .back-to-top{left:auto;right:28px}
       <a href="#contact" class="btn-primary" data-t="hero_btn1">Start Your Project</a>
       <a href="#packages" class="btn-secondary" data-t="hero_btn2">View Packages</a>
     </div>
-    <div style="display:flex;justify-content:center">
-      <button class="psi-badge" onclick="document.getElementById('psiModal').classList.add('open')" aria-label="View our Google PageSpeed Insights scores">
-        <span class="psi-badge-dot"></span>
-        We build results &mdash; Google Score: 100/100
-      </button>
-    </div>
   </div>
 </section>
 
@@ -590,6 +593,19 @@ body.rtl .back-to-top{left:auto;right:28px}
   <div class="stat"><div class="stat-num">99%</div><div class="stat-label" data-t="stat3">Success Rate</div></div>
   <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-t="stat4">Support</div></div>
 </div>
+
+<!-- PSI STRIP -->
+<button class="psi-strip" onclick="document.getElementById('psiModal').classList.add('open')" aria-label="View our Google PageSpeed Insights scores">
+  <span class="psi-strip-pulse"></span>
+  <span class="psi-strip-label">Google PageSpeed Insights</span>
+  <span class="psi-strip-scores">
+    <span class="psi-strip-score">100</span>
+    <span class="psi-strip-score">100</span>
+    <span class="psi-strip-score">100</span>
+    <span class="psi-strip-score">100</span>
+  </span>
+  <span class="psi-strip-cta">Tap to verify live <span class="psi-strip-arrow">&#8594;</span></span>
+</button>
 
 <!-- LOGO BAR -->
 <div class="logo-bar" aria-hidden="true">
