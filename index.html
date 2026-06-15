@@ -389,6 +389,18 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
   .logo-spin{animation:none}
   *{transition:none!important;animation:none!important}
 }
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.testi-card{background:#fff;border:1px solid #e8e8e8;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.3s;position:relative}
+.testi-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.07);transform:translateY(-3px);border-color:rgba(196,18,48,0.2)}
+.testi-text{font-family:'Cormorant Garamond',serif;font-size:17px;color:#444;line-height:1.8;font-style:italic;flex:1;margin-bottom:24px;padding-left:20px;position:relative}
+.testi-text::before{content:'"';position:absolute;left:0;top:-6px;font-size:48px;color:var(--red);opacity:0.2;line-height:1;font-family:'Cormorant Garamond',serif}
+.testi-stars{color:#c2410c;font-size:13px;letter-spacing:4px;margin-bottom:18px}
+.testi-name{font-family:'Montserrat',sans-serif;font-size:11px;color:#111;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.testi-role{font-family:'Montserrat',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:5px}
+body.rtl .testi-text{padding-left:0;padding-right:20px;text-align:right}
+body.rtl .testi-text::before{left:auto;right:0}
+body.rtl .testi-name,body.rtl .testi-role{text-align:right}
 /* SKIP LINK */
 .skip-link{position:absolute;top:-999px;left:0;padding:12px 24px;background:var(--red);color:#fff;font-size:13px;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:1px;z-index:9999;text-decoration:none}
 .skip-link:focus{top:0;position:fixed}
@@ -761,6 +773,41 @@ body.rtl #mobile-menu a{font-family:'Cairo',sans-serif!important;letter-spacing:
       <div class="why-card"><div class="why-icon" aria-hidden="true">02</div><h3 data-t="w2_name">True Multilingual Expertise</h3><p data-t="w2_desc">Four languages, native quality — Arabic RTL, English, German, and Dutch.</p></div>
       <div class="why-card"><div class="why-icon" aria-hidden="true">03</div><h3 data-t="w3_name">Dedicated Support</h3><p data-t="w3_desc">A dedicated account manager and technical team from brief through post-launch.</p></div>
       <div class="why-card"><div class="why-icon" aria-hidden="true">04</div><h3 data-t="w4_name">Domain & Hosting Ready</h3><p data-t="w4_desc">We connect everything directly to your domain and configure your full hosting environment.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section" id="testimonials">
+  <div class="section-title-wrap">
+    <div class="section-badge" data-t="badge_testi">Client Stories</div>
+    <h2 data-t="testi_h2">What Our <em>Clients Say</em></h2>
+    <p class="section-sub" data-t="testi_desc">Real results from real businesses across four continents.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+      <p class="testi-text" data-t="testi1_text">WebMaxPro transformed our restaurant's online presence completely. Bookings doubled in the first month and our brand finally looks as premium as our food.</p>
+      <p class="testi-name">Ahmed Al-Rashid</p>
+      <p class="testi-role">Talla Restaurant — Amman, Jordan</p>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+      <p class="testi-text" data-t="testi2_text">The multilingual support is seamless. Our Dutch and French clients both have a native experience. Professional team, fast delivery.</p>
+      <p class="testi-name">Sophie Vermeersch</p>
+      <p class="testi-role">Nuevo Stylo — Antwerp, Belgium</p>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+      <p class="testi-text" data-t="testi3_text">We needed a site that could handle high traffic and look impeccable on every device. WebMaxPro delivered exactly that — on time, on budget.</p>
+      <p class="testi-name">Marcus Hoffmann</p>
+      <p class="testi-role">E-Commerce — Frankfurt, Germany</p>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+      <p class="testi-text" data-t="testi4_text">Outstanding attention to detail. The custom animations and typography elevated our corporate identity to a completely new level.</p>
+      <p class="testi-name">James Thornton</p>
+      <p class="testi-role">Corporate Services — London, UK</p>
     </div>
   </div>
 </div>
