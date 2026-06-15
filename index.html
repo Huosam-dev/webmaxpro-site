@@ -422,20 +422,20 @@ body.rtl .testi-name,body.rtl .testi-role{text-align:right}
 .logo-bar{background:#f8f8f8;padding:22px 0;overflow:hidden;border-top:1px solid #ebebeb;border-bottom:1px solid #ebebeb}
 .logo-bar-track{display:flex;align-items:center;gap:56px;animation:logo-scroll 22s linear infinite;width:max-content;padding:0 28px}
 .logo-bar:hover .logo-bar-track{animation-play-state:paused}
-.logo-bar-item{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:#b0b0b0;white-space:nowrap}
+.logo-bar-item{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:#666;white-space:nowrap}
 @keyframes logo-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* BLOG */
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .blog-card{border:1px solid #e0ddd8;padding:36px 30px;transition:border-color 0.3s;background:#fff}
 .blog-card:hover{border-color:rgba(196,18,48,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-.blog-date{font-family:'Montserrat',sans-serif;font-size:9px;color:#888;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px}
+.blog-date{font-family:'Montserrat',sans-serif;font-size:9px;color:#666;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px}
 .blog-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1a1a1a;line-height:1.4;margin-bottom:14px}
 .blog-excerpt{font-family:'Montserrat',sans-serif;font-size:11px;color:#555;line-height:1.9;letter-spacing:0.3px}
 body.rtl .blog-date,body.rtl .blog-title,body.rtl .blog-excerpt{text-align:right}
 /* COOKIE */
 .cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#111;color:#bbb;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:9997;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.4px;transform:translateY(100%);transition:transform 0.4s ease}
 .cookie-bar.visible{transform:translateY(0)}
-.cookie-bar a{color:var(--red)}
+.cookie-bar a{color:#f87171;text-decoration:underline}
 .cookie-btns{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn-accept{background:var(--red);color:#fff;border:none;padding:9px 22px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
 .cookie-btn-decline{background:transparent;color:#888;border:1px solid #333;padding:9px 22px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
