@@ -418,6 +418,29 @@ body.rtl .faq-answer{padding-right:0;padding-left:44px;text-align:right}
 body.rtl .testi-text{padding-left:0;padding-right:20px;text-align:right}
 body.rtl .testi-text::before{left:auto;right:0}
 body.rtl .testi-name,body.rtl .testi-role{text-align:right}
+/* LOGO BAR */
+.logo-bar{background:#f8f8f8;padding:22px 0;overflow:hidden;border-top:1px solid #ebebeb;border-bottom:1px solid #ebebeb}
+.logo-bar-track{display:flex;align-items:center;gap:56px;animation:logo-scroll 22s linear infinite;width:max-content;padding:0 28px}
+.logo-bar:hover .logo-bar-track{animation-play-state:paused}
+.logo-bar-item{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:#b0b0b0;white-space:nowrap}
+@keyframes logo-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.blog-card{border:1px solid rgba(255,255,255,0.07);padding:36px 30px;transition:border-color 0.3s}
+.blog-card:hover{border-color:rgba(196,18,48,0.35)}
+.blog-date{font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;line-height:1.4;margin-bottom:14px}
+.blog-excerpt{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.5);line-height:1.9;letter-spacing:0.3px}
+body.rtl .blog-date,body.rtl .blog-title,body.rtl .blog-excerpt{text-align:right}
+/* COOKIE */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#111;color:#bbb;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:9997;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.4px;transform:translateY(100%);transition:transform 0.4s ease}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-bar a{color:var(--red)}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0}
+.cookie-btn-accept{background:var(--red);color:#fff;border:none;padding:9px 22px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.cookie-btn-decline{background:transparent;color:#888;border:1px solid #333;padding:9px 22px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+@media(max-width:600px){.cookie-bar{flex-direction:column;padding:20px 24px;align-items:flex-start}}
+body.rtl .cookie-bar{flex-direction:row-reverse}
 /* SKIP LINK */
 .skip-link{position:absolute;top:-999px;left:0;padding:12px 24px;background:var(--red);color:#fff;font-size:13px;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:1px;z-index:9999;text-decoration:none}
 .skip-link:focus{top:0;position:fixed}
@@ -481,6 +504,36 @@ body.rtl .testi-name,body.rtl .testi-role{text-align:right}
   <div class="stat"><div class="stat-num">120+</div><div class="stat-label" data-t="stat2">Happy Clients</div></div>
   <div class="stat"><div class="stat-num">99%</div><div class="stat-label" data-t="stat3">Success Rate</div></div>
   <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-t="stat4">Support</div></div>
+</div>
+
+<!-- LOGO BAR -->
+<div class="logo-bar" aria-hidden="true">
+  <div class="logo-bar-track">
+    <span class="logo-bar-item">Talla Restaurant</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Nuevo Stylo</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Frankfurt E-Commerce</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Corporate London</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Jordan Hospitality</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Belgian Boutique</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Talla Restaurant</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Nuevo Stylo</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Frankfurt E-Commerce</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Corporate London</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Jordan Hospitality</span>
+    <span class="logo-bar-item">·</span>
+    <span class="logo-bar-item">Belgian Boutique</span>
+    <span class="logo-bar-item">·</span>
+  </div>
 </div>
 
 <!-- SERVICES -->
@@ -959,6 +1012,33 @@ body.rtl .testi-name,body.rtl .testi-role{text-align:right}
   </div>
 </div>
 
+<!-- BLOG / INSIGHTS -->
+<div class="section-dark" id="insights">
+  <div class="section">
+    <div class="section-title-wrap">
+      <div class="section-badge" data-t="badge_blog">Insights</div>
+      <h2 data-t="blog_h2">Tips &amp; <em>Insights</em></h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-date" data-t="blog1_date">June 2026</div>
+        <h3 class="blog-title" data-t="blog1_title">5 Signs Your Website Is Hurting Your Business</h3>
+        <p class="blog-excerpt" data-t="blog1_excerpt">Slow load times, no mobile version, confusing navigation — these issues silently cost you clients every day. Here is what to look for and how to fix it.</p>
+      </div>
+      <div class="blog-card">
+        <div class="blog-date" data-t="blog2_date">April 2026</div>
+        <h3 class="blog-title" data-t="blog2_title">Why Multilingual Websites Convert Better</h3>
+        <p class="blog-excerpt" data-t="blog2_excerpt">Speaking your customer's language isn't just polite — it increases trust and conversion by up to 70%. Proper multilingual architecture makes all the difference.</p>
+      </div>
+      <div class="blog-card">
+        <div class="blog-date" data-t="blog3_date">February 2026</div>
+        <h3 class="blog-title" data-t="blog3_title">The Real Cost of a Template Website</h3>
+        <p class="blog-excerpt" data-t="blog3_excerpt">Template sites look cheap because they are. Slow, generic, impossible to truly customise — discover why custom code always wins in the long run.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <div id="contact" class="section">
   <div class="contact-wrap">
@@ -1124,5 +1204,48 @@ function toggleMenu(){
 window.addEventListener('scroll',function(){
   document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10);
 },{ passive:true });
-</script></body>
+</script>
+<!-- COOKIE BAR -->
+<div id="cookieBar" class="cookie-bar" role="region" aria-label="Cookie consent">
+  <span data-t="cookie_text">We use cookies to improve your experience. <a href="#security">Learn more</a>.</span>
+  <div class="cookie-btns">
+    <button class="cookie-btn-accept" onclick="setCookieChoice('accept')" data-t="cookie_accept">Accept</button>
+    <button class="cookie-btn-decline" onclick="setCookieChoice('decline')" data-t="cookie_decline">Decline</button>
+  </div>
+</div>
+<script>
+(function(){
+  function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return v?v.pop():null;}
+  var bar=document.getElementById('cookieBar');
+  if(!getCookie('wmp_consent')&&bar){setTimeout(function(){bar.classList.add('visible');},1800);}
+  window.setCookieChoice=function(c){
+    document.cookie='wmp_consent='+c+';max-age=31536000;path=/;SameSite=Lax';
+    if(bar){bar.classList.remove('visible');}
+  };
+  var counted=false;
+  function countUp(){
+    if(counted)return;counted=true;
+    document.querySelectorAll('.stat-num').forEach(function(el){
+      var raw=el.textContent.trim();
+      var suffix=raw.replace(/[\d]/g,'');
+      var target=parseInt(raw,10);
+      if(isNaN(target))return;
+      var dur=1800,start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        el.textContent=Math.round(ease*target)+suffix;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsEl=document.querySelector('.stats');
+  if(statsEl&&'IntersectionObserver'in window){
+    new IntersectionObserver(function(e){if(e[0].isIntersecting)countUp();},{threshold:0.4}).observe(statsEl);
+  }
+})();
+</script>
+</body>
 </html>
