@@ -12,7 +12,6 @@
 <meta property="og:description" content="تصميم مواقع احترافي لشركات دبي والإمارات. مواقع مخصصة بالعربية والإنجليزية من €200.">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:'Cormorant Garamond';src:local('Georgia'),local('Times New Roman'),serif;unicode-range:U+0051,U+0071;font-weight:400 900;font-style:normal}
 :root{--red:#c41230;--border:#e8e8e8}
 *{margin:0;padding:0;box-sizing:border-box}
 html{overflow-x:hidden}
@@ -118,5 +117,6 @@ footer a{color:#999;text-decoration:none;margin:0 10px}
   <p><a href="/">الرئيسية</a><a href="/services/">الخدمات</a><a href="/locations/">المناطق</a><a href="/blog/">المدونة</a><a href="/#contact">تواصل معنا</a></p>
   <p style="margin-top:10px">© 2026 WebMaxPro · حيث يلتقي الكود بالإبداع</p>
 </footer>
+<script>document.querySelectorAll("h1,h2,h3").forEach(function(h){h.innerHTML=h.innerHTML.replace(/(?![^<]*>)([Qq])/g,'<span style="font-family:Montserrat,sans-serif;font-weight:inherit">$1</span>')})</script>
 </body>
 </html>
