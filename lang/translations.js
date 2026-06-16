@@ -128,7 +128,10 @@ idle(function(){
     ci_company:"Company",ci_location:"Location",ci_langs:"Languages",ci_delivery:"Fastest Delivery",ci_delivery_val:"2 Business Days",
     badge_cta:"Ready?",cta_h2:"Ready to Build Something <em>Extraordinary?</em>",
     cta_p:"No templates. No shortcuts. Just exceptional digital work.",
-    footer_tag:"Where Code Meets Craft"
+    footer_tag:"Where Code Meets Craft",
+    footer_col_services:"Services",footer_col_locations:"Locations",footer_col_blog:"Blog",footer_col_company:"Company",
+    footer_desc:"Professional web design for restaurants, clinics, garages, startups & more - worldwide.",
+    footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · All rights reserved"
   };
   if(_langPending==='en'){_applyLang('en');_langPending=null;}
 });
@@ -516,7 +519,10 @@ window._loadLang=function(lang){
         ci_company:"الشركة",ci_location:"الموقع",ci_langs:"اللغات",ci_delivery:"أسرع تسليم",ci_delivery_val:"يومان عمل",
         badge_cta:"مستعد؟",cta_h2:"مستعد لبناء شيء <em>استثنائي؟</em>",
         cta_p:"لا قوالب. لا اختصارات. فقط عمل رقمي استثنائي.",
-        footer_tag:"Where Code Meets Craft"
+        footer_tag:"حيث يلتقي الكود بالإبداع",
+        footer_col_services:"الخدمات",footer_col_locations:"المناطق",footer_col_blog:"المدونة",footer_col_company:"الشركة",
+        footer_desc:"تصميم مواقع احترافي للمطاعم والعيادات والكراجات والشركات الناشئة والمزيد - في جميع أنحاء العالم.",
+        footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · جميع الحقوق محفوظة"
       };
       if(_langPending==='ar'){_applyLang('ar');_langPending=null;}
     });
