@@ -131,7 +131,17 @@ idle(function(){
     footer_tag:"Where Code Meets Craft",
     footer_col_services:"Services",footer_col_locations:"Locations",footer_col_blog:"Blog",footer_col_company:"Company",
     footer_desc:"Professional web design for restaurants, clinics, garages, startups & more - worldwide.",
-    footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · All rights reserved"
+    footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · All rights reserved",
+    footer_svc_restaurant:"Restaurant Websites",footer_svc_clinic:"Medical Clinic",footer_svc_ecommerce:"E-Commerce",
+    footer_svc_garage:"Garage & Auto",footer_svc_realestate:"Real Estate",footer_svc_hotel:"Hotel & Hospitality",
+    footer_svc_lawyer:"Lawyer & Legal",footer_svc_salon:"Salon & Beauty",footer_svc_startups:"Startups",footer_svc_multilingual:"Multilingual",
+    footer_loc_belgium:"Belgium",footer_loc_genk:"Genk",footer_loc_hasselt:"Hasselt",footer_loc_antwerp:"Antwerp",footer_loc_brussels:"Brussels",
+    footer_loc_dubai:"Dubai",footer_loc_netherlands:"Netherlands",footer_loc_germany:"Germany",footer_loc_usa:"USA",footer_loc_uk:"UK",
+    footer_loc_saudi:"Saudi Arabia",footer_loc_jordan:"Jordan",footer_loc_france:"France",footer_loc_spain:"Spain",footer_loc_canada:"Canada",
+    footer_blog_choose:"Choose a Web Designer",footer_blog_cost:"Website Cost Guide 2026",footer_blog_seo:"SEO Tips",
+    footer_blog_trends:"Design Trends 2026",footer_blog_responsive:"Responsive Design Guide",footer_blog_ecommerce:"E-Commerce Tips",
+    footer_blog_arabic:"Arabic Website Guide",footer_blog_google:"Google Ranking Tips",footer_blog_speed:"Speed Optimization",footer_blog_localseo:"Local SEO Guide",
+    footer_cmp_about:"About Us",footer_cmp_portfolio:"Portfolio",footer_cmp_pricing:"Pricing",footer_cmp_faq:"FAQ",footer_cmp_contact:"Contact"
   };
   if(_langPending==='en'){_applyLang('en');_langPending=null;}
 });
@@ -522,7 +532,17 @@ window._loadLang=function(lang){
         footer_tag:"حيث يلتقي الكود بالإبداع",
         footer_col_services:"الخدمات",footer_col_locations:"المناطق",footer_col_blog:"المدونة",footer_col_company:"الشركة",
         footer_desc:"تصميم مواقع احترافي للمطاعم والعيادات والكراجات والشركات الناشئة والمزيد - في جميع أنحاء العالم.",
-        footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · جميع الحقوق محفوظة"
+        footer_rights:"© 2026 WebMax<span style='color:#c41230'>Pro</span> · جميع الحقوق محفوظة",
+        footer_svc_restaurant:"مواقع المطاعم",footer_svc_clinic:"العيادات الطبية",footer_svc_ecommerce:"التجارة الإلكترونية",
+        footer_svc_garage:"الكراجات والسيارات",footer_svc_realestate:"العقارات",footer_svc_hotel:"الفنادق والضيافة",
+        footer_svc_lawyer:"المحامون والقانون",footer_svc_salon:"الصالونات والجمال",footer_svc_startups:"الشركات الناشئة",footer_svc_multilingual:"متعدد اللغات",
+        footer_loc_belgium:"بلجيكا",footer_loc_genk:"جنك",footer_loc_hasselt:"هاسيلت",footer_loc_antwerp:"أنتويرب",footer_loc_brussels:"بروكسل",
+        footer_loc_dubai:"دبي",footer_loc_netherlands:"هولندا",footer_loc_germany:"ألمانيا",footer_loc_usa:"الولايات المتحدة",footer_loc_uk:"المملكة المتحدة",
+        footer_loc_saudi:"المملكة العربية السعودية",footer_loc_jordan:"الأردن",footer_loc_france:"فرنسا",footer_loc_spain:"إسبانيا",footer_loc_canada:"كندا",
+        footer_blog_choose:"اختيار مصمم مواقع",footer_blog_cost:"دليل تكلفة الموقع 2026",footer_blog_seo:"نصائح SEO",
+        footer_blog_trends:"اتجاهات التصميم 2026",footer_blog_responsive:"دليل التصميم المتجاوب",footer_blog_ecommerce:"نصائح التجارة الإلكترونية",
+        footer_blog_arabic:"دليل المواقع العربية",footer_blog_google:"نصائح تحسين جوجل",footer_blog_speed:"تحسين السرعة",footer_blog_localseo:"دليل SEO المحلي",
+        footer_cmp_about:"من نحن",footer_cmp_portfolio:"أعمالنا",footer_cmp_pricing:"الأسعار",footer_cmp_faq:"الأسئلة الشائعة",footer_cmp_contact:"تواصل معنا"
       };
       if(_langPending==='ar'){_applyLang('ar');_langPending=null;}
     });
