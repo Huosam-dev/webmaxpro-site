@@ -33,13 +33,13 @@ nav a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;text
 .cta-box p{color:#ccc;margin-bottom:28px}
 footer{background:#111;color:#666;text-align:center;padding:28px;font-size:12px;letter-spacing:2px}
 footer a{color:#999;text-decoration:none;margin:0 10px}
-@media(max-width:600px){nav{padding:14px 20px}.hero{padding:70px 20px 50px}.content{padding:40px 20px}.features{grid-template-columns:1fr!important}.btn-primary,.btn-secondary{display:block;margin:6px 0;text-align:center}}
+@media(max-width:600px){.nav-hide-mobile{display:none!important}.nav-show-mobile{display:inline-block!important}nav{padding:14px 20px}.hero{padding:70px 20px 50px}.content{padding:40px 20px}.features{grid-template-columns:1fr!important}.btn-primary,.btn-secondary{display:block;margin:6px 0;text-align:center}}
 </style>
 </head>
 <body>
 <nav>
   <a href="/" class="logo">WebMax<span>Pro</span></a>
-  <div><a href="/#services">Services</a><a href="/#packages">Packages</a><a href="/#contact">Contact</a></div>
+  <div style="display:flex;gap:0;align-items:center"><a href="/#services" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;text-decoration:none;margin-left:20px" class="nav-hide-mobile">Services</a><a href="/#packages" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;text-decoration:none;margin-left:20px" class="nav-hide-mobile">Packages</a><a href="/#contact" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;text-decoration:none;margin-left:20px" class="nav-hide-mobile">Contact</a><a href="/#contact" style="display:none;background:#c41230;color:#fff;padding:9px 18px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-left:12px" class="nav-show-mobile">Get Quote</a></div>
 </nav>
 <div class="hero">
   <h1>Web Designer Belgium</h1>
