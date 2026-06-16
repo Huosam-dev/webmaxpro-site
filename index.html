@@ -349,6 +349,14 @@ body.rtl .wa-float{right:auto;left:28px}
 }
 
 /* MOBILE */
+@media(max-width:768px){
+  .footer-grid{grid-template-columns:1fr 1fr!important}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{flex-direction:column!important;text-align:center;gap:6px!important}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr!important}
+}
 @media(max-width:580px){
   .hero{min-height:auto;padding:110px 20px 80px}
   .process-item{flex-direction:column!important;gap:6px}
@@ -1254,9 +1262,9 @@ body.rtl .back-to-top{left:auto;right:28px}
   <!-- Main Footer -->
   <div style="padding:60px 40px 0;max-width:1200px;margin:0 auto">
     <!-- Top row: brand + links -->
-    <div style="display:grid;grid-template-columns:1fr repeat(4,auto);gap:48px;text-align:left;align-items:start">
+    <div class="footer-grid" style="display:grid;grid-template-columns:1fr repeat(4,auto);gap:48px;text-align:left;align-items:start">
       <!-- Brand -->
-      <div>
+      <div class="footer-brand">
         <a href="/" class="logo" style="justify-content:flex-start;color:#fff" aria-label="WebMaxPro — go to homepage"><svg class="logo-spin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 100 L100 20 A80 80 0 0 1 180 100 Z" fill="#EA4335"/><path d="M100 100 L180 100 A80 80 0 0 1 100 180 Z" fill="#FBBC05"/><path d="M100 100 L100 180 A80 80 0 0 1 20 100 Z" fill="#34A853"/><path d="M100 100 L20 100 A80 80 0 0 1 100 20 Z" fill="#4285F4"/><circle cx="100" cy="100" r="45" fill="white"/></svg>WebMax<span>Pro</span></a>
         <p style="font-family:'Montserrat',sans-serif;font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase;margin-top:10px" data-t="footer_tag">Where Code Meets Craft</p>
         <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:#888;line-height:1.8;margin-top:16px;max-width:240px">Professional web design for restaurants, clinics, garages, startups & more — worldwide.</p>
@@ -1328,7 +1336,7 @@ body.rtl .back-to-top{left:auto;right:28px}
     </div>
   </div>
   <!-- Bottom bar -->
-  <div style="border-top:1px solid #222;margin-top:48px;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+  <div class="footer-bottom" style="border-top:1px solid #222;margin-top:48px;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <p style="font-family:'Montserrat',sans-serif;font-size:11px;color:#444">© 2026 WebMax<span style="color:#c41230">Pro</span> · All rights reserved</p>
     <p style="font-family:'Montserrat',sans-serif;font-size:11px;color:#444;letter-spacing:2px;text-transform:uppercase">Where Code Meets Craft</p>
   </div>
