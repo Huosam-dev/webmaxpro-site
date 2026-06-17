@@ -1479,11 +1479,9 @@ if(_btt)_btt.addEventListener('click',function(){window.scrollTo({top:0,behavior
     var fadeObs=new IntersectionObserver(function(entries){
       entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target);}});
     },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    var _h=window.innerHeight,_toObs=[];
     document.querySelectorAll('.section-title-wrap,.service-card,.why-card,.testi-card,.blog-card,.about-fact,.process-item,.package-card,.lang-card,.why-quote').forEach(function(el){
-      var r=el.getBoundingClientRect();if(r.top>=_h||r.bottom<0)_toObs.push(el);
+      el.classList.add('fade-in');fadeObs.observe(el);
     });
-    _toObs.forEach(function(el){el.classList.add('fade-in');fadeObs.observe(el);});
   }
 })();
 </script>
