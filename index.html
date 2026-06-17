@@ -1483,14 +1483,6 @@ if(_btt)_btt.addEventListener('click',function(){window.scrollTo({top:0,behavior
   if(statsEl&&'IntersectionObserver'in window){
     new IntersectionObserver(function(e){if(e[0].isIntersecting)countUp();},{threshold:0.4}).observe(statsEl);
   }
-  if('IntersectionObserver'in window){
-    var fadeObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target);}});
-    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.section-title-wrap,.service-card,.why-card,.testi-card,.blog-card,.about-fact,.process-item,.package-card,.lang-card,.why-quote').forEach(function(el){
-      el.classList.add('fade-in');fadeObs.observe(el);
-    });
-  }
 })();
 </script>
 
