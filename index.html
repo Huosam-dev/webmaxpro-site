@@ -323,10 +323,10 @@ footer{background:#111;border-top:none;padding:0;text-align:center}
 body.rtl .wa-float{right:auto;left:28px}
 .wa-float:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5)}
 
-/* sections rendered normally — content-visibility removed to prevent long layout tasks */
-#services,#gallery,#packages,#process,#security,#contact{}
+/* CONTENT VISIBILITY - skip rendering off-screen sections on load */
+#services,#gallery,#packages,#process,#security,#contact{content-visibility:auto;contain-intrinsic-size:0 800px}
 #process{background:#fff}
-.section-dark{}
+.section-dark{content-visibility:auto;contain-intrinsic-size:0 700px}
 
 /* LANG CARDS */
 .lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#e0e0e0}
@@ -1474,14 +1474,6 @@ if(_btt)_btt.addEventListener('click',function(){window.scrollTo({top:0,behavior
   var statsEl=document.querySelector('.stats');
   if(statsEl&&'IntersectionObserver'in window){
     new IntersectionObserver(function(e){if(e[0].isIntersecting)countUp();},{threshold:0.4}).observe(statsEl);
-  }
-  if('IntersectionObserver'in window){
-    var fadeObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target);}});
-    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.section-title-wrap,.service-card,.why-card,.testi-card,.blog-card,.about-fact,.process-item,.package-card,.lang-card,.why-quote').forEach(function(el){
-      el.classList.add('fade-in');fadeObs.observe(el);
-    });
   }
 })();
 </script>
