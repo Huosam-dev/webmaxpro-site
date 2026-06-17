@@ -80,7 +80,8 @@
 </script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-normal.woff2" crossorigin>
-<link rel="stylesheet" href="/fonts.css">
+<link rel="preload" as="style" href="/fonts.css" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/fonts.css"></noscript>
 <style>
 
 :root{--gold:#f97316;--gold-light:#fdba74;--gold-dark:#c2410c;--red:#c41230;--border:#e8e8e8;--text:#1a1a1a;--muted:#666}
@@ -633,7 +634,7 @@ body.rtl .back-to-top{left:auto;right:28px}
 </div>
 
 <!-- PSI STRIP -->
-<button class="psi-strip" onclick="document.getElementById('psiModal').classList.add('open')" aria-label="View our Google PageSpeed Insights scores: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO">
+<button class="psi-strip" onclick="document.getElementById('psiModal').classList.add('open')">
   <span class="psi-strip-pulse"></span>
   <span class="psi-strip-label">Google PageSpeed Insights</span>
   <span class="psi-strip-scores">
