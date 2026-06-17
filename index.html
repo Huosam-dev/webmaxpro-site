@@ -78,12 +78,9 @@
   }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
-<!-- Preload the two critical font files so FCP/LCP don't wait for them -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=optional" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=optional"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-normal.woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css">
 <style>
 
 :root{--gold:#f97316;--gold-light:#fdba74;--gold-dark:#c2410c;--red:#c41230;--border:#e8e8e8;--text:#1a1a1a;--muted:#666}
@@ -145,7 +142,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.07)}
 body.rtl .lang-bar{direction:ltr}
 body.rtl nav{direction:ltr}
 body.rtl .nav-links{flex-direction:row-reverse}
-body.rtl h1,body.rtl h2,body.rtl h3,body.rtl p,body.rtl li,body.rtl a,body.rtl span,body.rtl div{font-family:'Cairo',sans-serif;letter-spacing:0;word-spacing:0.05em}
+body.rtl h1,body.rtl h2,body.rtl h3,body.rtl p,body.rtl li,body.rtl a,body.rtl span,body.rtl div{font-family:'IBM Plex Sans Arabic',sans-serif;letter-spacing:0;word-spacing:0.05em}
 body.rtl .hero h1{line-height:1.4;word-spacing:0.1em}
 body.rtl h2{line-height:1.4}
 body.rtl nav,body.rtl nav *,body.rtl .lang-bar,body.rtl .lang-bar *,body.rtl .logo{font-family:'Montserrat',sans-serif;letter-spacing:normal;word-spacing:normal}
@@ -636,7 +633,7 @@ body.rtl .back-to-top{left:auto;right:28px}
 </div>
 
 <!-- PSI STRIP -->
-<button class="psi-strip" onclick="document.getElementById('psiModal').classList.add('open')" aria-label="Google PageSpeed Insights scores — tap to verify live">
+<button class="psi-strip" onclick="document.getElementById('psiModal').classList.add('open')" aria-label="View our Google PageSpeed Insights scores: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO">
   <span class="psi-strip-pulse"></span>
   <span class="psi-strip-label">Google PageSpeed Insights</span>
   <span class="psi-strip-scores">
@@ -1272,7 +1269,7 @@ body.rtl .back-to-top{left:auto;right:28px}
   <!-- CTA Strip -->
   <div style="background:#c41230;padding:48px 40px;text-align:center">
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;margin-bottom:10px">Ready to Build Something Extraordinary?</p>
-    <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:28px;letter-spacing:0.5px">Custom websites from €200 · Fast delivery · No templates</p>
+    <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:#fff;margin-bottom:28px;letter-spacing:0.5px">Custom websites from €200 · Fast delivery · No templates</p>
     <a href="/#contact" style="display:inline-block;background:#fff;color:#c41230;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:14px 36px;text-decoration:none">Start Your Project →</a>
   </div>
   <!-- Main Footer -->
@@ -1386,13 +1383,6 @@ function selectLang(lang) {
   var active = document.querySelector('.lang-option[onclick*="\''+lang+'\'"]');
   if (active) active.classList.add('active');
   _currentLang = lang;
-  if (lang === 'ar' && !document.querySelector('link[data-cairo]')) {
-    var cl = document.createElement('link');
-    cl.rel = 'stylesheet';
-    cl.setAttribute('data-cairo', '1');
-    cl.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap';
-    document.head.appendChild(cl);
-  }
   if (window._T && window._T[lang]) { _applyLang(lang); } else {
     _langPending = lang;
     if (window._loadLang) window._loadLang(lang);
@@ -1489,8 +1479,7 @@ if(_btt)_btt.addEventListener('click',function(){window.scrollTo({top:0,behavior
       entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target);}});
     },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
     document.querySelectorAll('.section-title-wrap,.service-card,.why-card,.testi-card,.blog-card,.about-fact,.process-item,.package-card,.lang-card,.why-quote').forEach(function(el){
-      var r=el.getBoundingClientRect();
-      if(r.top>=window.innerHeight||r.bottom<0){el.classList.add('fade-in');fadeObs.observe(el);}
+      el.classList.add('fade-in');fadeObs.observe(el);
     });
   }
 })();
